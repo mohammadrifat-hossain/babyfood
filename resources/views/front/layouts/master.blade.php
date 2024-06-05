@@ -15,10 +15,6 @@
     $socials = cache()->remember('homepage_social', (60 * 60 * 24 * 90), function(){
         return Info::SettingsGroup('social');
     });
-
-    $categories = cache()->remember('homepage_categories', (60 * 60 * 24 * 90), function(){
-        return App\Models\Product\Category::where('for', 'product')->where('category_id', null)->active()->select('id', 'title', 'slug')->get();
-    });
 @endphp
 <html lang="en">
 <head>
@@ -40,7 +36,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
     @vite('resources/front/css/app.css')
 
@@ -67,99 +63,99 @@
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
         </svg>
     </div>
-    <header class="relative bg-white shadow">
-        <p class="flex items-center justify-center text-sm font-medium text-white py-1 bg-primary-light text-center">{!!
-           $settings_g['headline'] !!}</p>
+    <header class="relative bg-[white]">
+        <p class="flex items-center justify-center text-white py-2 bg-[#222222] text-center">{!! $settings_g['headline'] !!}</p>
 
         <div class="bg-white relative">
             <nav aria-label="Top" class="container">
-              <div class="h-16 grid grid-cols-12 items-center relative">
-                <div class="col-span-6 md:col-span-3 flex">
-                    <button type="button" class="bg-white p-2 rounded-md text-black lg:hidden" onclick="toggleMenu()">
-                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                      </svg>
-                    </button>
-
-                    <!-- Logo -->
-                    <div class="ml-4 lg:ml-0">
-                      <a href="{{route('homepage')}}"><img class="h-14 w-auto" width="135" height="55" src="{{$settings_g['logo'] ?? ''}}" alt="{{$settings_g['title'] ?? env('APP_NAME')}}"></a>
-                    </div>
-                </div>
-
-                <div class="col-span-6 hidden md:block">
-                    <form action="{{route('search')}}" class="border-primary border rounded-full overflow-hidden flex" method="get">
-                        <select name="category" class="focus:outline-none border-r border-primary p-2">
-                            <option value="">ক্যাটেগরীজ</option>
-                            @foreach ($categories as $category)
-                                <option value="{{$category->id}}" {{$category->id == request('category') ? 'selected' : ''}}>{{$category->title}}</option>
-                            @endforeach
-                        </select>
-
-                        <input type="text" name="search" value="{{request('search')}}" class="w-full focus:outline-none p-2" placeholder="সার্চ করুন">
-                        <button type="submit" class="search-btn"></button>
-                    </form>
-                </div>
-
-                <div class="col-span-6 md:col-span-3">
-                    <div class="ml-auto flex float-right">
-                      <!-- Search -->
-                      <div class="flex lg:ml-6 md:hidden">
-                        <a href="#" class="p-2 pt-0 text-gray-600 hover:text-gray-800" onclick="toggleSearch()">
-                          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                          </svg>
-                        </a>
-                      </div>
-
-                      <div class="font-semibold hidden md:inline-block">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline-block">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                          </svg>
-
-                          {{$settings_g['mobile_number'] ?? ''}}
-                      </div>
-
-                      <!-- Cart -->
-                      <div class="ml-4 flow-root lg:ml-6">
-                        <a href="{{route('cart')}}" class="group -m-2 p-2 flex items-center">
-                          <svg class="flex-shrink-0 h-6 w-6 text-gray-600 group-hover:text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                          <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800 top_cart_count">{{$cart_summary['count']}}</span>
-                        </a>
-                      </div>
-
-                      <!-- User Icon -->
-                      <div class="ml-4 flow-root lg:ml-6">
-                        <a href="{{route('login')}}" class="group -m-2 p-2 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-gray-600 group-hover:text-gray-800">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                <div class="py-2">
+                    <div class="grid grid-cols-12 items-center relative">
+                      <div class="col-span-6 flex">
+                          <button type="button" class="bg-white p-2 rounded-md text-black lg:hidden" onclick="toggleMenu()">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
-                        </a>
+                          </button>
+
+                          <!-- Logo -->
+                          <div class="ml-4 lg:ml-0">
+                            <a href="{{route('homepage')}}"><img class="h-14 w-auto" width="135" height="55" src="{{$settings_g['logo'] ?? ''}}" alt="{{$settings_g['title'] ?? env('APP_NAME')}}"></a>
+                          </div>
+                      </div>
+
+                      <div class="col-span-6">
+                          <div class="flex justify-end">
+                              <form action="{{route('search')}}" class="border-[#22222226] border rounded-full overflow-hidden flex w-64 max-w-full" method="get">
+                                  <input type="text" name="search" value="{{request('search')}}" class="w-full focus:outline-none p-2 ml-2" placeholder="Search for products">
+
+                                  <button type="submit" class="search-btn px-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-[#222222]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                    </svg>
+                                  </button>
+                              </form>
+
+                              <div class="flex">
+                                <!-- Search -->
+                                <div class="flex lg:ml-6 md:hidden">
+                                  <a href="#" class="p-2 pt-0 text-gray-600 hover:text-gray-800" onclick="toggleSearch()">
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                  </a>
+                                </div>
+
+                                <!-- User Icon -->
+                                <div class="ml-4 flow-root lg:ml-6 py-2">
+                                  <a href="{{route('login')}}" class="group -m-2 p-2 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 mr-2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                      </svg>
+
+                                      <span class="text-[#222] font-light">Sign in/Sign up</span>
+                                  </a>
+                                </div>
+
+                                <!-- Cart -->
+                                <div class="ml-4 flow-root lg:ml-6 py-2">
+                                  <a href="{{route('cart')}}" class="group -m-2 p-2 flex items-center relative">
+                                    <svg class="flex-shrink-0 h-6 w-6 text-gray-600 group-hover:text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                    </svg>
+
+                                    <span class="ml-2 font-medium top_cart_count bg-[#222] w-[15px] h-[15px] text-center text-white leading-[18px] text-xs rounded-full absolute top-3 right-0">{{$cart_summary['count']}}</span>
+                                  </a>
+                                </div>
+                              </div>
+                          </div>
                       </div>
                     </div>
                 </div>
-              </div>
             </nav>
 
-            <nav class="bg-primary hidden lg:block">
+            <nav class="hidden lg:block">
                 <div class="container">
-                    @if(env('APP_MAIN_MENU') == 'Menu')
-                        @if($main_menu)
-                            @foreach ($main_menu->SingleMenuItems as $menu_item)
-                            <li class="inline-block"><a href="{{$menu_item->menu_info['url']}}" class="inline-block py-2 text-white font-semibold hover:underline pr-4">{{$menu_item->menu_info['text']}}</a></li>
-                            @endforeach
-                        @else
-                            <p>Please create "Main Menu"</p>
-                        @endif
-                    @else
-                    <ul>
-                        @foreach ($categories as $category)
-                        <li class="inline-block"><a href="{{$category->route}}" class="inline-block py-2 text-white font-semibold hover:underline pr-4">{{$category->title}}</a></li>
-                        @endforeach
-                    </ul>
-                    @endif
+                    <div class="px-16 mb-5">
+                        <div class="border-b">
+                            @if(env('APP_MAIN_MENU') == 'Menu')
+                                @if($main_menu)
+                                    <ul class="text-center uppercase">
+                                    @foreach ($main_menu->SingleMenuItems as $menu_item)
+                                    <li class="inline-block"><a href="{{$menu_item->menu_info['url']}}" class="inline-block py-2 font-medium hover:text-[#d79290] pr-4">{{$menu_item->menu_info['text']}}</a></li>
+                                    @endforeach
+                                    </ul>
+                                @else
+                                    <p>Please create "Main Menu"</p>
+                                @endif
+                            @else
+                            <ul class="text-center uppercase">
+                                @foreach ($categories as $category)
+                                <li class="inline-block"><a href="{{$category->route}}" class="inline-block py-2 font-medium hover:text-[#d79290] pr-4">{{$category->title}}</a></li>
+                                @endforeach
+                            </ul>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </nav>
 

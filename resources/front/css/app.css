@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body{
+    font-family: "Josefin Sans", sans-serif;
+}
+
 .top_search_hidden{display: none;}
 .mobile_menu_hidden{display: none;}
 .page_loader_hidden{display: none;}
