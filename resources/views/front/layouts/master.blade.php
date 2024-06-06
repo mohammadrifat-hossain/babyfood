@@ -202,14 +202,14 @@
 
     @yield('master')
 
-    <footer class="bg-[#f6f6f8] pt-8">
+    <footer class="bg-[#f6f6f8] pt-12">
         <div class="container">
             <div class="grid grid-cols-5 gap-4">
                 <div>
                     <h2 class="uppercase">Menu Heading</h2>
 
                     <div class="mt-6">
-                        <ul class="font-thin grid grid-cols-1 gap-1.5">
+                        <ul class="font-[300] grid grid-cols-1 gap-1.5">
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
@@ -221,7 +221,7 @@
                     <h2 class="uppercase">Menu Heading</h2>
 
                     <div class="mt-6">
-                        <ul class="font-thin grid grid-cols-1 gap-1.5">
+                        <ul class="font-[300] grid grid-cols-1 gap-1.5">
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
@@ -233,7 +233,7 @@
                     <h2 class="uppercase">Menu Heading</h2>
 
                     <div class="mt-6">
-                        <ul class="font-thin grid grid-cols-1 gap-1.5">
+                        <ul class="font-[300] grid grid-cols-1 gap-1.5">
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
@@ -245,7 +245,7 @@
                     <h2 class="uppercase">Menu Heading</h2>
 
                     <div class="mt-6">
-                        <ul class="font-thin grid grid-cols-1 gap-1.5">
+                        <ul class="font-[300] grid grid-cols-1 gap-1.5">
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
                             <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
@@ -335,7 +335,7 @@
         </div>
 
         <div class="bg-[#222222] text-white">
-            <div class="container">
+            <div class="container text-center">
                 <p class="mt-4 py-4">{!! $settings_g['copyright'] ?? '' !!}@if(env("APP_DEVELOP_BY")) | Developed by <a class="underline" href="https://eomsbd.com">Best E-commerce Website Developer</a>@endif</p>
             </div>
         </div>
