@@ -32,6 +32,7 @@
                                 <select name="type" class="form-control form-control-sm type_input" required>
                                     <option value="Text" {{$widget->type == 'Text' ? 'selected' : ''}}>Text</option>
                                     <option value="Menu" {{$widget->type == 'Menu' ? 'selected' : ''}}>Menu</option>
+                                    <option value="Social" {{$widget->type == 'Social' ? 'selected' : ''}}>Social</option>
                                 </select>
                             </div>
                         </div>
@@ -76,18 +77,21 @@
 <script>
     $(document).on('change', '.type_input', function(){
         let type = $(this).val();
-        if(type == "Text"){
-            $('.menu_input').hide();
-            $('.menu_input').find('select').removeAttr('required', 'required');
 
+        if(type == "Text"){
             $('.text_input').show();
             $('.text_input').find('textarea').attr('required', 'required');
         }else{
-            $('.menu_input').show();
-            $('.menu_input').find('select').attr('required', 'required');
-
             $('.text_input').hide();
             $('.text_input').find('textarea').removeAttr('required', 'required');
+        }
+
+        if(type == "Menu"){
+            $('.menu_input').show();
+            $('.menu_input').find('select').attr('required', 'required');
+        }else{
+            $('.menu_input').hide();
+            $('.menu_input').find('select').removeAttr('required', 'required');
         }
     });
 </script>

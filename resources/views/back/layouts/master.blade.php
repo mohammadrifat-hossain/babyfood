@@ -247,9 +247,9 @@
 
             <li class="{{(request()->route()->getName() == 'back.courier.config') ? 'active_sub_menu' : ''}}"><a href="{{route('back.courier.config')}}"><i class="fas fa-circle"></i> Courier</a></li>
 
-            {{-- <li class="{{(Route::is('back.feature-ads.index') || Route::is('back.feature-ads.edit')) ? 'active_sub_menu' : ''}}"><a href="{{route('back.feature-ads.index')}}"><i class="fas fa-circle"></i> Feature Ads</a></li>
+            {{-- <li class="{{(Route::is('back.feature-ads.index') || Route::is('back.feature-ads.edit')) ? 'active_sub_menu' : ''}}"><a href="{{route('back.feature-ads.index')}}"><i class="fas fa-circle"></i> Feature Ads</a></li> --}}
 
-            <li class="{{(Route::is('back.footer-widgets.index')) ? 'active_sub_menu' : ''}}"><a href="{{route('back.footer-widgets.index')}}"><i class="fas fa-circle"></i> Footer Widgets</a></li> --}}
+            <li class="{{(Route::is('back.footer-widgets.index')) ? 'active_sub_menu' : ''}}"><a href="{{route('back.footer-widgets.index')}}"><i class="fas fa-circle"></i> Footer Widgets</a></li>
           </ul>
         </li>
         {{-- <li>
