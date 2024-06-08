@@ -8,10 +8,6 @@
     $footer_menu = cache()->remember('footer_menu_cache', (60 * 60 * 24 * 90), function(){
         return App\Models\Menu::with('SingleMenuItems', 'SingleMenuItems.Page', 'SingleMenuItems.Category')->where('name', 'Footer Menu')->first();
     });
-    // $footer_menu = cache()->remember('footer_menu_cache', (60 * 60 * 24 * 90), function(){
-    //     return App\Models\Menu::with('SingleMenuItems', 'SingleMenuItems.Page', 'SingleMenuItems.Category')->where('name', 'Footer Menu')->first();
-    // });
-    // dd($settings_g)
     $socials = cache()->remember('homepage_social', (60 * 60 * 24 * 90), function(){
         return Info::SettingsGroup('social');
     });
@@ -81,13 +77,13 @@
 
                           <!-- Logo -->
                           <div class="ml-4 lg:ml-0">
-                            <a href="{{route('homepage')}}"><img class="h-14 w-auto" width="135" height="55" src="{{$settings_g['logo'] ?? ''}}" alt="{{$settings_g['title'] ?? env('APP_NAME')}}"></a>
+                            <a href="{{route('homepage')}}"><img class="h-14 w-auto max-w-full object-contain object-left" width="135" height="55" src="{{$settings_g['logo'] ?? ''}}" alt="{{$settings_g['title'] ?? env('APP_NAME')}}"></a>
                           </div>
                       </div>
 
                       <div class="col-span-6">
                           <div class="flex justify-end">
-                              <form action="{{route('search')}}" class="border-[#22222226] border rounded-full overflow-hidden flex w-64 max-w-full" method="get">
+                              <form action="{{route('search')}}" class="border-[#22222226] border rounded-full overflow-hidden w-64 max-w-full hidden md:flex" method="get">
                                   <input type="text" name="search" value="{{request('search')}}" class="w-full focus:outline-none p-2 ml-2 placeholder:font-[300] font-[300]" placeholder="Search for products">
 
                                   <button type="submit" class="search-btn px-2">
@@ -101,7 +97,7 @@
                                 <!-- Search -->
                                 <div class="flex lg:ml-6 md:hidden">
                                   <a href="#" class="p-2 pt-0 text-gray-600 hover:text-gray-800" onclick="toggleSearch()">
-                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                    <svg class="w-6 h-6 mt-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                                       <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
                                   </a>
@@ -114,7 +110,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                       </svg>
 
-                                      <span class="text-[#222] font-light">Sign in/Sign up</span>
+                                      <span class="text-[#222] font-light hidden md:inline-block">Sign in/Sign up</span>
                                   </a>
                                 </div>
 
@@ -161,14 +157,14 @@
                 </div>
             </nav>
 
-            <div class="border absolute top-14 left-0 w-80 shadow max-w-full bg-white p-2 z-10 mobile_menu_hidden" id="mobile_menu">
+            <ul class="border absolute top-14 left-0 w-80 shadow max-w-full bg-white p-2 z-10 mobile_menu_hidden" id="mobile_menu">
                 @if(env('APP_MAIN_MENU') == 'Menu')
                 @if($main_menu)
                     @foreach ($main_menu->SingleMenuItems as $menu_item)
                     <li><a href="{{$menu_item->menu_info['url']}}">{{$menu_item->menu_info['text']}}</a></li>
                     @endforeach
                 @else
-                    <p>Please create "Main Menu"</p>
+                    <li>Please create "Main Menu"</li>
                 @endif
                 @else
                 <ul>
@@ -177,14 +173,14 @@
                     @endforeach
                 </ul>
                 @endif
-            </div>
+            </ul>
         </div>
     </header>
 
     <div class="bg-primary fixed top-0 left-0 w-full py-2 top_search_hidden" id="search_modal">
         <div class="container">
             <div class="grid grid-cols-12">
-                <div class="flex col-span-11">
+                <div class="flex col-span-10">
                     <form method="get" action="{{route('search')}}" class="relative w-full">
                       <input type="search" id="search-dropdown" name="search" class="block p-2 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:primary focus:primary" placeholder="Search Product" required="">
 
@@ -193,8 +189,8 @@
                       </button>
                     </form>
                 </div>
-                <button onclick="toggleSearch()">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white mt-1 ml-1 font-semibold">
+                <button class="col-span-2 text-right" onclick="toggleSearch()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white mt-1 ml-1 font-semibold inline-block">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                       </svg>
                 </button>

@@ -53,7 +53,7 @@
     </div>
 
     <div class="container mt-6">
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid-cols-4 gap-4 hidden md:grid">
             <div class="flex gap-4">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-[#9e9e9e]">
@@ -101,9 +101,9 @@
         </div>
 
         <div class="text-center">
-            <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
+            <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
-            <div class="grid grid-cols-4 gap-7 mb-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-7 mb-10">
                 @foreach ($categories as $key => $category)
                     @if($key < 4)
                     <a href="{{$category->route}}" class="relative overflow-hidden group">
@@ -118,7 +118,7 @@
             </div>
 
             @foreach ($home_blocks as $key => $home_block)
-                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">{{$home_block->title}}</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
+                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">{{$home_block->title}}</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
                 @php
                     $products = $home_block->Products()->with('Gallery')->latest('id')->take(20)->get();
@@ -133,14 +133,14 @@
                 <a href="{{$home_block->route}}" class="px-10 py-3 bg-[#222] rounded-full text-white font-medium mb-4 relative overflow-hidden group inline-block"><span class="absolute top-0 w-full h-full bg-[#d79290] z-0 -left-full group-hover:left-0 transition-all duration-300"></span> <span class="relative z-10">View All</span></a>
 
                 @if($key == 0)
-                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
+                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
-                <div class="grid grid-cols-4 gap-7">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-7">
                     @foreach ($categories as $c_key => $category)
                         @if($c_key > 3 && $c_key < 7)
-                            <a href="{{$category->route}}" class="relative overflow-hidden group h-full {{$c_key == 5 ? 'col-span-2' : ''}}">
+                            <a href="{{$category->route}}" class="relative overflow-hidden group h-full {{$c_key == 5 ? 'md:col-span-2' : ''}}">
                                 <img src="{{$category->img_paths['original']}}" class="w-full group-hover:scale-110 transition duration-1000 h-full object-cover" alt="{{$category->title}}">
-        
+
                                 <div class="absolute left-0 bottom-4 w-full">
                                     <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">{{$category->title}}</span>
                                 </div>
@@ -151,13 +151,13 @@
                 @endif
 
                 @if($key == 1)
-                <div class="grid grid-cols-2 gap-6 mt-8 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 mb-8">
                     @foreach ($categories as $c_key => $category)
                     @if($c_key > 6 && $c_key < 11)
                     <a href="{{$category->route}}" class="relative block">
                         <img src="{{$category->img_paths['original']}}" class="w-full" alt="{{$category->title}}">
-    
-                        <div class="absolute left-0 top-0 w-full h-full flex items-center justify-center text-5xl">
+
+                        <div class="absolute left-0 top-0 w-full h-full flex items-center justify-center text-3xl md:text-5xl">
                             <span class="font-shadow">{{$category->title}}</span>
                         </div>
                     </a>
@@ -165,14 +165,14 @@
                     @endforeach
                 </div>
 
-                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
+                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
-                <div class="grid grid-cols-4 gap-7">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-7">
                     @foreach ($categories as $c_key => $category)
                         @if($c_key > 10 && $c_key < 15)
                             <a href="{{$category->route}}" class="relative overflow-hidden group">
                                 <img src="{{$category->img_paths['medium']}}" alt="{{$category->title}}">
-        
+
                                 <div class="absolute left-0 bottom-4 w-full">
                                     <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">{{$category->title}}</span>
                                 </div>
