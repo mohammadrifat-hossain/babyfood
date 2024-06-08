@@ -1,5 +1,5 @@
 <nav aria-label="Breadcrumb" class="mb-4">
-    <ol role="list" class="container flex pt-2" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <ol role="list" class="flex pt-2" itemscope itemtype="https://schema.org/BreadcrumbList">
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <div class="flex items-center">
           <a href="{{route('homepage')}}" class="mr-2 text-sm font-medium text-font-color-dark flex" itemprop="item">

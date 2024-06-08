@@ -7,21 +7,21 @@
 @endsection
 
 @section('master')
-@include('front.layouts.breadcrumb', [
-    'title' => 'Dashboard',
-    'url' => '#'
-])
+<div class="mt-10 container pb-16 max-w-[1224px]">
+    @include('front.layouts.breadcrumb', [
+        'title' => 'Dashboard',
+        'url' => '#'
+    ])
 
-<div class="mt-10 container pb-16">
   <div class="grid grid-cols-2 gap-2">
     <div class="mb-4">
         <h2 class="text-2xl font-bold text-font-color-dark">Order History</h2>
-        <p><a href="#" class="py-0 px-3 bg-primary text-font-color-light rounded border border-primary hover:bg-white hover:text-primary transition inline-block mt-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></p>
+        <p><a href="#" class="py-0 px-3 bg-[#222] text-font-color-light rounded border border-[#222] hover:bg-white transition inline-block mt-2 text-white hover:text-black" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></p>
         <form id="logout-form" class="hidden" action="{{ route('logout') }}" method="POST">@csrf</form>
     </div>
 
     <div class="text-right">
-        <a href="{{route('auth.editProfile')}}" class="py-0 px-3 bg-primary text-font-color-light rounded border border-primary hover:bg-white hover:text-primary transition inline-block mt-2">
+        <a href="{{route('auth.editProfile')}}" class="py-0 px-3 bg-[#222] text-white text-font-color-light rounded border border-[#222] hover:bg-white transition inline-block mt-2 hover:text-black">
         Edit Profile
         </a>
     </div>

@@ -7,14 +7,14 @@
 @endsection
 
 @section('master')
-    @include('front.layouts.breadcrumb', [
-        'title' => 'Search result for "' . $search . '"',
-        'url' => '#'
-    ])
+    <div class="container max-w-[1224px]">
+        @include('front.layouts.breadcrumb', [
+            'title' => 'Search result for "' . $search . '"',
+            'url' => '#'
+        ])
 
-    <div class="container">
         @if(count($products))
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 mb-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mb-6 gap-6 text-center">
                 @foreach ($products as $product)
                     @include('front.layouts.product-loop')
                 @endforeach

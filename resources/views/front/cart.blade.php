@@ -9,24 +9,23 @@
 @section('master')
 <div class="bg-gray-100">
     <div class="pt-4">
-        @include('front.layouts.breadcrumb', [
-            'title' => 'Cart',
-            'url' => '#'
-        ])
+        <div class="container mt-5 pb-4 md:pb-16 max-w-[1224px]">
+            @include('front.layouts.breadcrumb', [
+                'title' => 'Cart',
+                'url' => '#'
+            ])
 
-        <div class="container mt-5 pb-4 md:pb-16">
             @if(count($carts['carts']))
                 <form action="{{route('order')}}" method="POST" class="grid grid-cols-1 md:grid-cols-8 gap-4 checkoutForm">
                     <div class="bg-white border rounded col-span-1 md:col-span-4 lg:col-span-3">
-                        <h2 class="text-xl font-medium mb-2 bg-gray-200 p-2">কাস্টমার ইনফরমেশন</h2>
+                        <h2 class="text-xl font-medium mb-2 bg-gray-200 p-2">Customer Information</h2>
 
                         <div class="p-4">
                             @csrf
-                            <p class="text-center mb-7">অর্ডারটি কনফার্ম করতে আপনার নাম, ঠিকানা, মোবাইল নাম্বার, লিখে <span class="text-red-400">অর্ডার কনফার্ম করুন</span> বাটনে ক্লিক করুন</p>
 
                             <div class="mb-4">
-                                <label class="block text-font-color-dark text-sm font-bold mb-2">আপনার নাম*</label>
-                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-font-color-dark leading-tight focus:shadow-outline @error('name') border-red-500 @enderror" type="text" name="name" value="{{old('name', (auth()->user()->full_name ?? ''))}}" placeholder="আপনার নাম লিখুন">
+                                <label class="block text-font-color-dark text-sm font-bold mb-2">Your Name*</label>
+                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-font-color-dark leading-tight focus:shadow-outline @error('name') border-red-500 @enderror" type="text" name="name" value="{{old('name', (auth()->user()->full_name ?? ''))}}" placeholder="Your Name">
 
                                 @error('name')
                                     <span class="invalid-feedback block" role="alert">
@@ -36,8 +35,8 @@
                             </div>
 
                             <div class="mb-4">
-                                <label class="block text-font-color-dark text-sm font-bold mb-2">আপনার মোবাইল*</label>
-                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-font-color-dark leading-tight focus:shadow-outline mobile_number @error('mobile_number') border-red-500 @enderror" type="number" name="mobile_number" value="{{old('mobile_number', (auth()->user()->mobile_number ?? ''))}}" placeholder="আপনার মোবাইল লিখুন">
+                                <label class="block text-font-color-dark text-sm font-bold mb-2">Mobile Number*</label>
+                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-font-color-dark leading-tight focus:shadow-outline mobile_number @error('mobile_number') border-red-500 @enderror" type="number" name="mobile_number" value="{{old('mobile_number', (auth()->user()->mobile_number ?? ''))}}" placeholder="Mobile Number">
 
                                 @error('mobile_number')
                                     <span class="invalid-feedback block" role="alert">
@@ -47,8 +46,8 @@
                             </div>
 
                             <div class="mb-4">
-                                <label class="block text-font-color-dark text-sm font-bold mb-2">আপনার ঠিকানা*</label>
-                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-font-color-dark leading-tight focus:shadow-outline @error('address') border-red-500 @enderror" type="text" name="address" value="{{old('address', (auth()->user()->address ?? ''))}}" placeholder="আপনার ঠিকানা লিখুন">
+                                <label class="block text-font-color-dark text-sm font-bold mb-2">Address*</label>
+                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-font-color-dark leading-tight focus:shadow-outline @error('address') border-red-500 @enderror" type="text" name="address" value="{{old('address', (auth()->user()->address ?? ''))}}" placeholder="Address">
 
                                 @error('address')
                                     <span class="invalid-feedback block" role="alert">
@@ -58,21 +57,21 @@
                             </div>
 
                             <div class="mb-4">
-                                <label class="block text-font-color-dark text-sm font-bold mb-2">আপনার এরিয়া সিলেক্ট করুন*</label>
+                                <label class="block text-font-color-dark text-sm font-bold mb-2">Choose Your Area*</label>
                                 <select name="ares" class="shadow appearance-none border rounded w-full py-2 px-3 text-font-color-dark leading-tight focus:shadow-outline @error('address') border-red-500 @enderror change_area" required>
-                                    <option value="Inside Dhaka">ঢাকার ভিতরে ডেলিভারি</option>
-                                    <option value="Outside Dhaka">ঢাকার বাইরে ডেলিভারি</option>
+                                    <option value="Inside Dhaka">Inside Dhaka</option>
+                                    <option value="Outside Dhaka">Outside Dhaka</option>
                                 </select>
                             </div>
 
                             <div class="mt-6">
-                                <button type="submit" class="text-center rounded-md border-2 border-primary bg-primary px-6 py-2 text-base font-medium text-font-color-light shadow-sm hover:bg-white hover:text-primary block w-full text-white">অর্ডার কনফার্ম করুন</button>
+                                <button type="submit" class="text-center rounded-md border-2 border-primary bg-primary px-6 py-2 text-base font-medium text-font-color-light shadow-sm hover:bg-white hover:text-primary block w-full text-white">Confirm Order</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-white border rounded col-span-1 md:col-span-4 lg:col-span-5">
-                        <h2 class="text-xl font-medium mb-2 bg-gray-200 p-2">অর্ডার ইনফরমেশন</h2>
+                        <h2 class="text-xl font-medium mb-2 bg-gray-200 p-2">Order Information</h2>
 
                         <div class="p-4">
                             <div class="py-2 md-py-6">

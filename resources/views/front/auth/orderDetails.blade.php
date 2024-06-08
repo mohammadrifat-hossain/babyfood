@@ -7,13 +7,13 @@
 @endsection
 
 @section('master')
-@include('front.layouts.breadcrumb', [
-    'title' => 'Order Details',
-    'url' => '#'
-])
+<div class="container mt-6 pb-16 max-w-[1224px]">
+    @include('front.layouts.breadcrumb', [
+        'title' => 'Order Details',
+        'url' => '#'
+    ])
 
-<div class="container mt-6 pb-16">
-    <a href="{{route('auth.dashboard')}}" class="py-0 px-3 bg-primary text-font-color-light rounded border border-primary hover:bg-white hover:text-primary transition inline-block mt-2 mb-4">
+    <a href="{{route('auth.dashboard')}}" class="py-0 px-3 bg-[#222] text-font-color-light rounded border border-[#222] hover:bg-white transition inline-block mt-2 text-white hover:text-black">
     Back
     </a>
 

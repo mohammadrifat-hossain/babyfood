@@ -7,15 +7,12 @@
 @endsection
 
 @section('master')
-{{-- @php
-    $products = array();
-@endphp --}}
-@include('front.layouts.breadcrumb', [
-    'title' => 'Order Success',
-    'url' => '#'
-])
+<div class="container mt-6 pb-16 max-w-[1224px]">
+    @include('front.layouts.breadcrumb', [
+        'title' => 'Order Success',
+        'url' => '#'
+    ])
 
-<div class="container mt-6 pb-16">
     <div class="bg-green-600 rounded text-center mb-2 text-white py-3 text-lg md:text-2xl px-2">
         Thank You. Your order has been received.
     </div>
@@ -34,13 +31,6 @@
             </thead>
             <tbody>
                 @foreach($order->OrderProducts as $i => $product)
-                    {{-- @php
-                        $products[] = [
-                            'id' => $product->product_id,
-                            'quantity' => $product->quantity
-                        ];
-                    @endphp --}}
-
                     <tr class="border-b">
                         <td class="px-3 py-2 text-sm text-gray-900 border-r font-light">
                             <img src="{{ $product->Product->img_paths['small'] ?? asset('img/default-img.png') }}" alt="{{ $product->Product->title ?? 'n/a' }}" class="w-20 h-20 object-contain">
@@ -93,7 +83,7 @@
     </div>
 
     <div class="text-center mb-8">
-        <a href="{{route('homepage')}}" class="text-center rounded-md border-2 border-primary-light bg-primary-light px-3 py-2 text-sm font-medium text-white inline-block">আরো শপিং করুন</a>
+        <a href="{{route('homepage')}}" class="text-center rounded-md border-2 border-primary-light bg-primary-light px-3 py-2 text-sm font-medium text-white inline-block">Continue Shopping</a>
     </div>
 </div>
 @endsection

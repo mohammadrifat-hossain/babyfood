@@ -7,12 +7,12 @@
 @endsection
 
 @section('master')
-@include('front.layouts.breadcrumb', [
-    'title' => 'Edit Profile',
-    'url' => '#'
-])
+<div class="mt-10 container pb-16 max-w-[1224px]">
+    @include('front.layouts.breadcrumb', [
+        'title' => 'Edit Profile',
+        'url' => '#'
+    ])
 
-<div class="mt-10 container pb-16">
   <div class="grid grid-cols-2 gap-2">
     <div class="mb-4">
         <h2 class="text-2xl font-bold text-font-color-dark">Edit Profile</h2>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="text-right">
-        <a href="{{route('auth.dashboard')}}" class="py-0 px-3 bg-primary text-font-color-light rounded border border-primary hover:bg-white hover:text-primary transition inline-block mt-2">
+        <a href="{{route('auth.dashboard')}}" class="py-0 px-3 bg-[#222] text-font-color-light rounded border border-[#222] hover:bg-white transition inline-block mt-2 text-white hover:text-black">
         Dashboard
         </a>
     </div>
@@ -77,7 +77,7 @@
           @enderror
         </div>
 
-        <button class="rounded-md border-2 border-primary bg-primary px-6 py-2 text-base font-medium text-font-color-light shadow-sm hover:bg-primary-light mt-2" type="submit">Update</button>
+        <button class="rounded-md border-2 px-6 py-2 text-base font-medium text-font-color-light shadow-sm mt-2 bg-[#222] border-[#222] text-white" type="submit">Update</button>
       </div>
     </form>
 
@@ -115,7 +115,7 @@
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-font-color-dark leading-tight focus:shadow-outline" type="password" name="password_confirmation" required placeholder="Confirm Password">
       </div>
 
-      <button class="rounded-md border-2 border-primary bg-primary px-6 py-2 text-base font-medium text-font-color-light shadow-sm hover:bg-primary-light mt-2">Update</button>
+      <button class="rounded-md border-2 px-6 py-2 text-base font-medium text-font-color-light shadow-sm mt-2 bg-[#222] border-[#222] text-white">Update</button>
     </form>
   </div>
 </div>
