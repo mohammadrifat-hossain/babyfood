@@ -15,6 +15,8 @@
     $socials = cache()->remember('homepage_social', (60 * 60 * 24 * 90), function(){
         return Info::SettingsGroup('social');
     });
+
+    $widgets = App\Models\Widget::with('Menu', 'Menu.SingleMenuItems')->where('status', 1)->where('placement', 'Footer')->orderBy('position')->get();
 @endphp
 <html lang="en">
 <head>
@@ -86,7 +88,7 @@
                       <div class="col-span-6">
                           <div class="flex justify-end">
                               <form action="{{route('search')}}" class="border-[#22222226] border rounded-full overflow-hidden flex w-64 max-w-full" method="get">
-                                  <input type="text" name="search" value="{{request('search')}}" class="w-full focus:outline-none p-2 ml-2" placeholder="Search for products">
+                                  <input type="text" name="search" value="{{request('search')}}" class="w-full focus:outline-none p-2 ml-2 placeholder:font-[300] font-[300]" placeholder="Search for products">
 
                                   <button type="submit" class="search-btn px-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-[#222222]">
@@ -205,138 +207,59 @@
     <footer class="bg-[#f6f6f8] pt-12">
         <div class="container">
             <div class="grid grid-cols-5 gap-4">
-                <div>
-                    <h2 class="uppercase">Menu Heading</h2>
-
-                    <div class="mt-6">
-                        <ul class="font-[300] grid grid-cols-1 gap-1.5">
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="uppercase">Menu Heading</h2>
-
-                    <div class="mt-6">
-                        <ul class="font-[300] grid grid-cols-1 gap-1.5">
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="uppercase">Menu Heading</h2>
-
-                    <div class="mt-6">
-                        <ul class="font-[300] grid grid-cols-1 gap-1.5">
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="uppercase">Menu Heading</h2>
-
-                    <div class="mt-6">
-                        <ul class="font-[300] grid grid-cols-1 gap-1.5">
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                            <li><a href="" class="hover:text-[#6e6d6d]">Menu Heading</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div>
-                    <h2 class="uppercase">FOLLOW US</h2>
-                    <div class="flex flex-wrap gap-2 mt-6">
-                        @foreach ($socials as $social)
-                            @if($social->name == 'facebook')
-                                <a href="{{$social->value}}" class="bg-blue-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
-                                <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
-                                </a>
-                            @elseif($social->name == 'twitter')
-                                <a href="{{$social->value}}" class="bg-blue-400 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
-                                <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" /></svg>
-                                </a>
-                            @elseif($social->name == 'instagram')
-                                <a href="{{$social->value}}" class="bg-pink-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-                                </a>
-                            @elseif($social->name == 'linkedin')
-                                <a href="{{$social->value}}" class="bg-blue-600 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
-                                    <svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                        <g><path d="M218.123122,218.127392 L180.191928,218.127392 L180.191928,158.724263 C180.191928,144.559023 179.939053,126.323993 160.463756,126.323993 C140.707926,126.323993 137.685284,141.757585 137.685284,157.692986 L137.685284,218.123441 L99.7540894,218.123441 L99.7540894,95.9665207 L136.168036,95.9665207 L136.168036,112.660562 L136.677736,112.660562 C144.102746,99.9650027 157.908637,92.3824528 172.605689,92.9280076 C211.050535,92.9280076 218.138927,118.216023 218.138927,151.114151 L218.123122,218.127392 Z M56.9550587,79.2685282 C44.7981969,79.2707099 34.9413443,69.4171797 34.9391618,57.260052 C34.93698,45.1029244 44.7902948,35.2458562 56.9471566,35.2436736 C69.1040185,35.2414916 78.9608713,45.0950217 78.963054,57.2521493 C78.9641017,63.090208 76.6459976,68.6895714 72.5186979,72.8184433 C68.3913982,76.9473153 62.7929898,79.26748 56.9550587,79.2685282 M75.9206558,218.127392 L37.94995,218.127392 L37.94995,95.9665207 L75.9206558,95.9665207 L75.9206558,218.127392 Z M237.033403,0.0182577091 L18.8895249,0.0182577091 C8.57959469,-0.0980923971 0.124827038,8.16056231 -0.001,18.4706066 L-0.001,237.524091 C0.120519052,247.839103 8.57460631,256.105934 18.8895249,255.9977 L237.033403,255.9977 C247.368728,256.125818 255.855922,247.859464 255.999,237.524091 L255.999,18.4548016 C255.851624,8.12438979 247.363742,-0.133792868 237.033403,0.000790807055"></path></g>
-                                    </svg>
-                                </a>
-                            @elseif($social->name == 'youtube')
-                                <a href="{{$social->value}}" class="bg-red-600 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
-                                    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" /></svg>
-                                </a>
-                            @endif
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-4 gap-4 pt-16">
-                <div class="flex gap-4">
+                @foreach ($widgets as $widget)
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-[#9e9e9e]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                        </svg>
+                        <h2 class="uppercase">{{$widget->title}}</h2>
+
+                        @if($widget->type == 'Menu' && $widget->Menu)
+                        <div class="mt-6">
+                            <ul class="font-[300] grid grid-cols-1 gap-1.5">
+                                @foreach ($widget->Menu->SingleMenuItems as $item)
+                                <li><a href="{{$item->menu_info['url']}}" class="hover:text-[#6e6d6d]">{{$item->menu_info['text']}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @elseif($widget->type == 'Social')
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            @foreach ($socials as $social)
+                                @if($social->name == 'facebook')
+                                    <a href="{{$social->value}}" class="bg-blue-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
+                                    <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                                    </a>
+                                @elseif($social->name == 'twitter')
+                                    <a href="{{$social->value}}" class="bg-blue-400 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
+                                    <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" /></svg>
+                                    </a>
+                                @elseif($social->name == 'instagram')
+                                    <a href="{{$social->value}}" class="bg-pink-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                                    </a>
+                                @elseif($social->name == 'linkedin')
+                                    <a href="{{$social->value}}" class="bg-blue-600 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
+                                        <svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                            <g><path d="M218.123122,218.127392 L180.191928,218.127392 L180.191928,158.724263 C180.191928,144.559023 179.939053,126.323993 160.463756,126.323993 C140.707926,126.323993 137.685284,141.757585 137.685284,157.692986 L137.685284,218.123441 L99.7540894,218.123441 L99.7540894,95.9665207 L136.168036,95.9665207 L136.168036,112.660562 L136.677736,112.660562 C144.102746,99.9650027 157.908637,92.3824528 172.605689,92.9280076 C211.050535,92.9280076 218.138927,118.216023 218.138927,151.114151 L218.123122,218.127392 Z M56.9550587,79.2685282 C44.7981969,79.2707099 34.9413443,69.4171797 34.9391618,57.260052 C34.93698,45.1029244 44.7902948,35.2458562 56.9471566,35.2436736 C69.1040185,35.2414916 78.9608713,45.0950217 78.963054,57.2521493 C78.9641017,63.090208 76.6459976,68.6895714 72.5186979,72.8184433 C68.3913982,76.9473153 62.7929898,79.26748 56.9550587,79.2685282 M75.9206558,218.127392 L37.94995,218.127392 L37.94995,95.9665207 L75.9206558,95.9665207 L75.9206558,218.127392 Z M237.033403,0.0182577091 L18.8895249,0.0182577091 C8.57959469,-0.0980923971 0.124827038,8.16056231 -0.001,18.4706066 L-0.001,237.524091 C0.120519052,247.839103 8.57460631,256.105934 18.8895249,255.9977 L237.033403,255.9977 C247.368728,256.125818 255.855922,247.859464 255.999,237.524091 L255.999,18.4548016 C255.851624,8.12438979 247.363742,-0.133792868 237.033403,0.000790807055"></path></g>
+                                        </svg>
+                                    </a>
+                                @elseif($social->name == 'youtube')
+                                    <a href="{{$social->value}}" class="bg-red-600 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
+                                        <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" /></svg>
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                        @else
+                        <div class="mt-6">
+                            {!! $widget->text !!}
+                        </div>
+                        @endif
                     </div>
-                    <div class="flex-grow text-left">
-                        <h2 class="font-semibold">Worldwide Shipping</h2>
-                        <p class="text-sm text-[#878787] font-medium">Free Shipping worldwide</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-9 text-[#9e9e9e]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-                        </svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h2 class="font-semibold">Secured Payment</h2>
-                        <p class="text-sm text-[#878787] font-medium">Safe and secure Payment</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-[#9e9e9e] mt-1">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                        </svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h2 class="font-semibold">24/7 Support</h2>
-                        <p class="text-sm text-[#878787] font-medium">Around the clock support</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-9 text-[#9e9e9e]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-                        </svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h2 class="font-semibold">Custom Fitting</h2>
-                        <p class="text-sm text-[#878787] font-medium">Available for all customers</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 
         <div class="bg-[#222222] text-white">
             <div class="container text-center">
-                <p class="mt-4 py-4">{!! $settings_g['copyright'] ?? '' !!}@if(env("APP_DEVELOP_BY")) | Developed by <a class="underline" href="https://eomsbd.com">Best E-commerce Website Developer</a>@endif</p>
+                <p class="mt-4 py-4">{!! $settings_g['copyright'] ?? '' !!} | Developed by <a class="underline" href="https://eomsbd.com">Best E-commerce Website Developer</a></p>
             </div>
         </div>
     </footer>
