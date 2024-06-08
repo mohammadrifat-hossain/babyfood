@@ -36,7 +36,7 @@ class PageController extends Controller
         }
 
         $categories = cache()->remember('homepage_categories', (60 * 60 * 24 * 90), function(){
-            return Category::where('for', 'product')->where('category_id', null)->active()->select('id', 'title', 'slug')->get();
+            return Category::where('for', 'product')->where('feature', 1)->where('category_id', null)->active()->select('id', 'title', 'slug', 'image', 'media_id')->take(11)->get();
         });
 
         $hot_deals = cache()->remember('hot_deals', (60 * 60 * 24 * 90), function(){
@@ -47,7 +47,9 @@ class PageController extends Controller
             return Slider::active()->get();
         });
 
-        return view('front.homepage', compact('products', 'categories', 'hot_deals', 'sliders'));
+        $home_blocks = Category::where('for', 'product')->where('home_block', 1)->active()->get();
+
+        return view('front.homepage', compact('products', 'categories', 'hot_deals', 'sliders', 'home_blocks'));
     }
 
     public function category($id){

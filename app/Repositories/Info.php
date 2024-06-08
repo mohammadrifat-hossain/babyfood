@@ -62,3 +62,7 @@ class Info {
 function settings($group, $name){
     return Info::Settings($group, $name);
 }
+
+function amount($amount){
+    return number_format($amount, 2);
+}

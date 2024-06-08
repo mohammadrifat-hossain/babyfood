@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->boolean('status')->default(1);
             $table->boolean('feature')->default(0);
+            $table->boolean('home_block')->default(0);
             $table->integer('feature_position')->default(1000);
             $table->string('for', 55)->default('product'); // product, blog
             $table->string('title');

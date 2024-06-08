@@ -60,6 +60,7 @@ ul.category li ul li ul li a i{font-size: 14px}
                 @endif
                 <th scope="col">Feature</th>
                 <th scope="col">Status</th>
+                <th scope="col">Home Block</th>
                 <th scope="col" class="text-right">Action</th>
               </tr>
             </thead>
@@ -180,6 +181,13 @@ ul.category li ul li ul li a i{font-size: 14px}
                             @include('switcher::switch', [
                                 'table' => 'categories',
                                 'data' => $category,
+                            ])
+                        </td>
+                        <td>
+                            @include('switcher::switch', [
+                                'table' => 'categories',
+                                'data' => $category,
+                                'column' => 'home_block'
                             ])
                         </td>
                         <td class="text-right">

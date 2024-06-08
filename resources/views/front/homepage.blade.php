@@ -104,140 +104,84 @@
             <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
             <div class="grid grid-cols-4 gap-7 mb-10">
-                <a href="" class="relative overflow-hidden group">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/Untitled_design_2_700x.png?v=1688382748" class="w-full group-hover:scale-125 transition duration-1000" alt="">
+                @foreach ($categories as $key => $category)
+                    @if($key < 4)
+                    <a href="{{$category->route}}" class="relative overflow-hidden group">
+                        <img src="{{$category->img_paths['medium']}}" alt="{{$category->title}}">
 
-                    <div class="absolute left-0 bottom-4 w-full">
-                        <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">Category Title</span>
-                    </div>
-                </a>
-                <a href="" class="relative overflow-hidden group">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/Untitled_design_2_700x.png?v=1688382748" class="w-full group-hover:scale-125 transition duration-1000" alt="">
-
-                    <div class="absolute left-0 bottom-4 w-full">
-                        <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">Category Title</span>
-                    </div>
-                </a>
-                <a href="" class="relative overflow-hidden group">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/Untitled_design_2_700x.png?v=1688382748" class="w-full group-hover:scale-125 transition duration-1000" alt="">
-
-                    <div class="absolute left-0 bottom-4 w-full">
-                        <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">Category Title</span>
-                    </div>
-                </a>
-                <a href="" class="relative overflow-hidden group">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/Untitled_design_2_700x.png?v=1688382748" class="w-full group-hover:scale-125 transition duration-1000" alt="">
-
-                    <div class="absolute left-0 bottom-4 w-full">
-                        <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">Category Title</span>
-                    </div>
-                </a>
+                        <div class="absolute left-0 bottom-4 w-full">
+                            <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">{{$category->title}}</span>
+                        </div>
+                    </a>
+                    @endif
+                @endforeach
             </div>
 
-            <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
+            @foreach ($home_blocks as $key => $home_block)
+                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">{{$home_block->title}}</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
-            <div class="owl-carousel_normal owl-carousel owl-theme mb-10">
-                <div>
-                    <div href="" class="relative overflow-hidden group">
-                        <div class="group-hover:scale-110 transition duration-1000">
-                            <a href="" class="block group-hover:hidden h-full">
-                                <img src="https://vinayfashion.ae/cdn/shop/files/F6A6462-Edit_400x.jpg?v=1688113395" class="w-full h-full object-cover" alt="">
-                            </a>
+                @php
+                    $products = $home_block->Products()->with('Gallery')->latest('id')->take(20)->get();
+                @endphp
 
-                            <a href="" class="hidden group-hover:block h-full">
-                                <img src="https://vinayfashion.ae/cdn/shop/files/F6A6462-Edit_400x.jpg?v=1688113395" class="w-full h-full object-cover" alt="">
-                            </a>
-                        </div>
-
-                        <div class="absolute left-0 top-0 w-full h-full flex justify-center content-center items-center">
-                            <div class="-mt-16 group-hover:mt-0 transition-all duration-300 opacity-0 group-hover:opacity-100 invisible group-hover:visible">
-                                <button class="bg-white px-6 py-2 rounded-full font-[300] text-center h-10 overflow-hidden button-group hover:bg-[#222] hover:text-white mb-2">
-                                    <span class="relative block top-[0] button-group-hover:-top-[30px] transition-all duration-300">Quick View</span>
-
-                                    <span class="inline-block relative top-[10px] button-group-hover:top-[-25px] transition-all duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                        </svg>
-                                    </span>
-                                </button>
-
-                                <button class="bg-white px-6 py-2 rounded-full text-center h-10 overflow-hidden button-group hover:bg-[#222] hover:text-white font-[300]">
-                                    <span class="relative block top-[0] button-group-hover:-top-[30px] transition-all duration-300">Quick Shop</span>
-
-                                    <span class="inline-block relative top-[10px] button-group-hover:top-[-25px] transition-all duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="mt-2 text-[#222]"><a href="">Product Title</a></p>
-                    <p class="text-[#696969] font-[400] text-lg"><a href="">Tk 46,382.00</a></p>
+                <div class="owl-carousel_normal owl-carousel owl-theme mb-10">
+                    @foreach ($products as $product)
+                        @include('front.layouts.product-loop')
+                    @endforeach
                 </div>
-            </div>
 
-            <button class="px-10 py-3 bg-[#222] rounded-full text-white font-medium mb-4 relative overflow-hidden group"><span class="absolute top-0 w-full h-full bg-[#d79290] z-0 -left-full group-hover:left-0 transition-all duration-300"></span> <span class="relative z-10">View All</span></button>
+                <a href="{{$home_block->route}}" class="px-10 py-3 bg-[#222] rounded-full text-white font-medium mb-4 relative overflow-hidden group inline-block"><span class="absolute top-0 w-full h-full bg-[#d79290] z-0 -left-full group-hover:left-0 transition-all duration-300"></span> <span class="relative z-10">View All</span></a>
 
-            <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
+                @if($key == 0)
+                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
-            <div class="grid grid-cols-4 gap-7">
-                <a href="" class="relative overflow-hidden group h-full">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/IMG_2576_2.jpg?v=1688385347" class="w-full group-hover:scale-110 transition duration-1000 h-full object-cover" alt="">
+                <div class="grid grid-cols-4 gap-7">
+                    @foreach ($categories as $c_key => $category)
+                        @if($c_key > 3 && $c_key < 7)
+                            <a href="{{$category->route}}" class="relative overflow-hidden group h-full {{$c_key == 5 ? 'col-span-2' : ''}}">
+                                <img src="{{$category->img_paths['original']}}" class="w-full group-hover:scale-110 transition duration-1000 h-full object-cover" alt="{{$category->title}}">
+        
+                                <div class="absolute left-0 bottom-4 w-full">
+                                    <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">{{$category->title}}</span>
+                                </div>
+                            </a>
+                        @endif
+                    @endforeach
+                </div>
+                @endif
 
-                    <div class="absolute left-0 bottom-4 w-full">
-                        <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">Category Title</span>
-                    </div>
-                </a>
-                <a href="" class="relative overflow-hidden group col-span-2 h-full">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/IMG_2576_2.jpg?v=1688385347" class="w-full group-hover:scale-110 transition duration-1000 h-full object-cover" alt="">
+                @if($key == 1)
+                <div class="grid grid-cols-2 gap-6 mt-8 mb-8">
+                    @foreach ($categories as $c_key => $category)
+                    @if($c_key > 6 && $c_key < 11)
+                    <a href="{{$category->route}}" class="relative block">
+                        <img src="{{$category->img_paths['original']}}" class="w-full" alt="{{$category->title}}">
+    
+                        <div class="absolute left-0 top-0 w-full h-full flex items-center justify-center text-5xl">
+                            <span class="font-shadow">{{$category->title}}</span>
+                        </div>
+                    </a>
+                    @endif
+                    @endforeach
+                </div>
 
-                    <div class="absolute left-0 bottom-4 w-full">
-                        <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">Category Title</span>
-                    </div>
-                </a>
-                <a href="" class="relative overflow-hidden group h-full">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/IMG_2576_2.jpg?v=1688385347" class="w-full group-hover:scale-110 transition duration-1000 h-full object-cover" alt="">
+                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
-                    <div class="absolute left-0 bottom-4 w-full">
-                        <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">Category Title</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="grid grid-cols-2 gap-6 mt-8 mb-8">
-                <a href="" class="relative block">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/Untitled_design_6.png" class="w-full" alt="">
-
-                    <div class="absolute left-0 top-0 w-full h-full flex items-center justify-center text-5xl">
-                        <span class="font-shadow">Palazzo Suits</span>
-                    </div>
-                </a>
-                <a href="" class="relative block">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/Untitled_design_6.png" class="w-full" alt="">
-
-                    <div class="absolute left-0 top-0 w-full h-full flex items-center justify-center text-5xl">
-                        <span class="font-shadow">Palazzo Suits</span>
-                    </div>
-                </a>
-                <a href="" class="relative block">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/Untitled_design_6.png" class="w-full" alt="">
-
-                    <div class="absolute left-0 top-0 w-full h-full flex items-center justify-center text-5xl">
-                        <span class="font-shadow">Palazzo Suits</span>
-                    </div>
-                </a>
-                <a href="" class="relative block">
-                    <img src="https://vinayfashion.ae/cdn/shop/files/Untitled_design_6.png" class="w-full" alt="">
-
-                    <div class="absolute left-0 top-0 w-full h-full flex items-center justify-center text-5xl">
-                        <span class="font-shadow">Palazzo Suits</span>
-                    </div>
-                </a>
-            </div>
+                <div class="grid grid-cols-4 gap-7">
+                    @foreach ($categories as $c_key => $category)
+                        @if($c_key > 10 && $c_key < 15)
+                            <a href="{{$category->route}}" class="relative overflow-hidden group">
+                                <img src="{{$category->img_paths['medium']}}" alt="{{$category->title}}">
+        
+                                <div class="absolute left-0 bottom-4 w-full">
+                                    <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">{{$category->title}}</span>
+                                </div>
+                            </a>
+                        @endif
+                    @endforeach
+                </div>
+                @endif
+            @endforeach
         </div>
     </div>
 @endsection

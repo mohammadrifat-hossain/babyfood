@@ -9,3 +9,5 @@ rupaporup.com(V-1.0.0) is an Laravel eCommerce Management website developed by [
 
 sudo chgrp -R www-data public/l-build resources/views/l-build
 sudo chmod -R ug+rwx public/l-build resources/views/l-build
+
+ALTER TABLE `categories` ADD `home_block` TINYINT NOT NULL DEFAULT '0' AFTER `feature`; 
