@@ -6,129 +6,98 @@
         'description' => $product->meta_description,
         'keywords' => $product->meta_tags
     ])
+
+    <link href="{{asset('front/magiczoomplus.css')}}" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" href="{{asset('front/OwlCarousel/dist/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front/OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
 @endsection
 
 @section('master')
 @include('front.layouts.breadcrumb', [
     'title' => $product->title,
-        'url' => $product->route
+    'url' => $product->route
 ])
 
 <div class="container">
     <div class="mt-6">
-        <div class="grid grid-cols-1 md:grid-cols-9 gap-6">
-            <div class="col-span-1 md:col-span-4">
-                <img src="{{$product->img_paths['original']}}" alt="{{$product->title}}" class="w-full h-auto object-center shadow-md rounded" width="300" height="160" id="product_preview">
-
-                <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-2 mt-4">
-                    <div class="block shadow cursor-pointer hover:shadow-lg">
-                        <img src="{{$product->img_paths['small']}}" onclick="changeProductImage('{{$product->img_paths['original']}}');" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
-                    </div>
-
-                    @foreach ($product->Gallery as $gallery)
-                        <div class="block shadow cursor-pointer hover:shadow-lg" onclick="changeProductImage('{{$gallery->paths['original']}}');">
-                            <img src="{{$gallery->paths['small']}}" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
+        <div class="grid grid-cols-1 md:grid-cols-9 gap-14">
             <div class="col-span-1 md:col-span-5">
-                <h1 class="text-xl md:text-2xl font-semibold tracking-tight text-gray-700">{{$product->title}}</h1>
+                <div class="grid grid-cols-8 gap-2 zoom-gallery">
+                    <div class="hidden md:block">
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="block shadow cursor-pointer hover:shadow-lg">
+                                <img src="{{$product->img_paths['small']}}" onclick="changeProductImage('{{$product->img_paths['original']}}');" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
+                            </div>
 
-                <div class="grid grid-cols-12">
-                    <div class="col-span-12 md:col-span-8">
-                        <p class="text-3xl mt-4" style="color: #dc3545"><span class="single_product_price">{{$product->prices['sale_price']}} tk</span> @if($product->prices['regular_price'] > 0)<span class="text-black line-through text-xl">{{$product->prices['regular_price']}} tk</span>@endif</p>
-
-                        <p class="mt-4 text-sm text-white inline-block px-3 py-0.5 product_code" style="background: #74c951"><span>প্রোডাক্ট কোড: {{$product->id}}</span></p>
-
-                        <div class="sp_variation">
-                            @foreach ($product->VariableAttributes as $attribute)
-                                <div class="grid grid-cols-12 gap-5 mb-2 mt-2">
-                                    <div class="col-span-4 md:col-span-2">
-                                        <span class="mr-2 mt-2 d-inline-block"><b>{{$attribute->name}}:</b></span>
-                                    </div>
-
-                                    <div class="col-span-8 md:col-span-10">
-                                        <ul class="sp_variation_all npnls">
-                                            @foreach ($attribute->AttributeItems as $attribute_item)
-                                                @if(in_array($attribute_item->id, $product->attribute_items_arr))
-                                                <li>
-                                                    <input type="radio" name="attr_id_{{$attribute->id}}" id="av_id_{{$attribute_item->id}}" class="co_radio" value="{{$attribute->id . ':' . $attribute_item->id}}">
-                                                    <label for="av_id_{{$attribute_item->id}}" class="cartOptions">{{$attribute_item->name}}</label>
-                                                </li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                            @foreach ($product->Gallery as $gallery)
+                                <div class="block shadow cursor-pointer hover:shadow-lg" onclick="changeProductImage('{{$gallery->paths['original']}}');">
+                                    <img src="{{$gallery->paths['small']}}" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
                                 </div>
                             @endforeach
                         </div>
+                    </div>
 
-                        <div class="mt-10">
-                            <form action="{{route('cart.directOrder')}}" method="get">
-                                <p>পরিমান:</p>
-                                <input type="hidden" name="product" value="{{$product->id}}">
-                                <input type="hidden" name="product_data_id" class="product_data_id" value="">
-                                <div class="mb-4 flex">
-                                    <button class="w-8 h-8 text-center border-2 border-black cursor-pointer font-bold border-l-0 bg-black text-white" type="button" onclick="updateProQuantity('minus')">-</button>
-                                    <input name="quantity" type="number" value="1" id="single_cart_quantity" class="h-8 border-2 border-black px-1 w-10 focus:outline-none text-center rounded-none">
-                                    <button class="w-8 h-8 text-center border-2 border-black cursor-pointer font-bold border-r-0 bg-black text-white" type="button" onclick="updateProQuantity('plus')">+</button>
+                    <div class="col-span-8 md:col-span-7">
+                        <a href="{{$product->img_paths['original']}}" class="MagicZoom" id="zoom-v">
+                            <img src="{{$product->img_paths['original']}}" alt="{{$product->title}}" class="w-full h-auto object-center shadow-md" width="300" height="160" id="product_preview">
+                        </a>
+
+                        <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-2 mt-4 md:hidden">
+                            <div class="block shadow cursor-pointer hover:shadow-lg">
+                                <img src="{{$product->img_paths['small']}}" onclick="changeProductImage('{{$product->img_paths['original']}}');" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
+                            </div>
+
+                            @foreach ($product->Gallery as $gallery)
+                                <div class="block shadow cursor-pointer hover:shadow-lg" onclick="changeProductImage('{{$gallery->paths['original']}}');">
+                                    <img src="{{$gallery->paths['small']}}" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
                                 </div>
-
-                                <button type="submit" class="bg-primary hover:bg-primary-light border border-transparent rounded-md py-2 px-2 md:px-4 items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 inline-block w-full md:w-auto">অর্ডার করুন</button>
-                            </form>
-
-                            <button type="button" class="bg-primary-light hover:bg-primary border border-transparent rounded-md py-2 px-2 md:px-4 items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 inline-block mt-2 w-full md:w-auto" onclick="addToCart('{{$product->id}}')">কার্ট-এ যোগ করুন</button>
-
-                            <a href="tel:{{$settings_g['mobile_number'] ?? ''}}" class="bg-green-800 hover:bg-green-600 border border-transparent rounded py-2 px-2 md:px-4 items-center justify-center text-base font-medium text-white block w-full mt-3 text-center">ফোনে অর্ডার করুনঃ {{$settings_g['mobile_number']}}</a>
-
-                            @if($settings_g['messenger_link'] ?? null)
-                            <a href="{{$settings_g['messenger_link'] ?? ''}}" class="bg-sky-500 hover:bg-sky-400 border border-transparent rounded py-2 px-2 md:px-4 items-center justify-center text-base font-medium text-white block w-full mt-3 text-center">ম্যাসেজের মাধ্যমে অর্ডার করতে ক্লিক করুন</a>
-                            @endif
+                            @endforeach
                         </div>
-
-                        <table class="w-full mt-4 text-black text-sm">
-                            <tbody>
-                                <tr>
-                                    <td style="padding-left: 0;border-bottom: 1px solid #ddd;">
-                                    ঢাকার ভিতরে ডেলিভারি
-                                    </td>
-                                    <td style="border-bottom: 1px solid #ddd;">
-                                    <b>৳ {{env('INSIDE_DHAKA_DELIVERY_CHARGE')}}</b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding-left: 0;border-bottom: 1px solid #ddd;">
-                                    ঢাকার বাইরে ডেলিভারি
-                                    </td>
-                                    <td style="border-bottom: 1px solid #ddd;">
-                                    <b>৳ {{env('OUTSIDE_DHAKA_DELIVERY_CHARGE')}}</b>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
+            </div>
 
+            <div class="col-span-1 md:col-span-4">
+                <h1 class="text-sm md:text-2xl font-medium tracking-tight text-[#222]">{{$product->title}}</h1>
+
+                <p class="mt-4 text-xl text-[#7d7d7d] font-medium mb-8"><span class="single_product_price">{{$product->prices['sale_price']}} Tk</span> @if($product->prices['regular_price'] > 0)<span class="text-black line-through text-xl">{{$product->prices['regular_price']}} Tk</span>@endif</p>
+
+                <div class="sp_variation mb-8">
+                    @foreach ($product->VariableAttributes as $attribute)
+                        <div><span class="mr-2 mt-2 d-inline-block"><b>{{$attribute->name}}:</b></span></div>
+
+                        <ul class="sp_variation_all npnls overflow-hidden">
+                            @foreach ($attribute->AttributeItems as $attribute_item)
+                                @if(in_array($attribute_item->id, $product->attribute_items_arr))
+                                <li>
+                                    <input type="radio" name="attr_id_{{$attribute->id}}" id="av_id_{{$attribute_item->id}}" class="co_radio" value="{{$attribute->id . ':' . $attribute_item->id}}">
+                                    <label for="av_id_{{$attribute_item->id}}" class="cartOptions">{{$attribute_item->name}}</label>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    @endforeach
+                </div>
+
+                <button type="button" class="hover:bg-[#222] border border-[#222] py-2 px-2 md:px-4 items-center justify-center text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 block mt-2 w-full mb-2" onclick="addToCart('{{$product->id}}')">Add to Cart</button>
+
+                <button type="submit" class="bg-[#222] hover:bg-[#c35b58] border border-transparent py-2 px-2 md:px-4 items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 block w-full">BUY IT NOW</button>
+
+                <h2 class="font-semibold mb-2 text-xl mt-4">Description</h2>
+                <input name="quantity" type="hidden" value="1" id="single_cart_quantity">
+
+                <div class="mb-2 responsive_video">
+                    {!! $product->description !!}
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="my-10 w-full overflow-hidden">
-        <div class="border">
-            <h2 class="bg-primary py-1 px-2 font-semibold text-white mb-2">পন্যের বিবরণ</h2>
+    <div class="mt-6 text-center">
+        <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Related Products</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
-            <div class="px-3 mb-2 responsive_video">
-                {!! $product->description !!}
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-6">
-        <h2 class="bg-primary py-1 px-2 font-semibold rounded text-white mb-4">রিলেটেড প্রোডাক্ট</h2>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mb-3">
+        <div class="owl-carousel_normal owl-carousel owl-theme mb-10">
             @foreach ($related_products as $related_product)
                 @if($related_product)
                     @include('front.layouts.product-loop', [
@@ -142,6 +111,39 @@
 @endsection
 
 @section('footer')
+    <script src="{{asset('front/OwlCarousel/dist/owl.carousel.min.js')}}"></script>
+
+    <script src="{{asset('front/magiczoomplus.js')}}"></script>
+
+    <script>
+        $('.owl-carousel_normal').owlCarousel({
+            items: 4,
+            loop: true,
+            video: true,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
+            margin: 10,
+            nav: true,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 2,
+                    margin: 10,
+                },
+                600: {
+                    items: 3,
+                    margin: 20,
+                },
+                1000: {
+                    items: 4,
+                    margin: 30,
+                }
+            },
+            lazyLoad: false
+        });
+    </script>
+
     <script src="{{asset('front/fitvids.js/jquery.fitvids.js')}}"></script>
     <script>
         $(document).ready(function(){

@@ -87,7 +87,7 @@ class PageController extends Controller
             ->select('product_categories.product_id')
             ->distinct()
             ->latest('product_categories.product_id')
-            ->take(24)->get();
+            ->take(20)->get();
         $related_products = $related_products->pluck('Product');
 
         return view('front.product', compact('product', 'related_products'));
