@@ -82,7 +82,7 @@
                       </div>
 
                       <div class="col-span-6">
-                          <div class="flex justify-end">
+                          <div class="flex justify-end gap-2">
                               <form action="{{route('search')}}" class="border-[#22222226] border rounded-full overflow-hidden w-64 max-w-full hidden md:flex" method="get">
                                   <input type="text" name="search" value="{{request('search')}}" class="w-full focus:outline-none p-2 ml-2 placeholder:font-[300] font-[300]" placeholder="Search for products">
 
