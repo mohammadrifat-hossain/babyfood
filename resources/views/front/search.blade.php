@@ -25,7 +25,7 @@
             </div>
         @else
             <div class="text-center py-40">
-                <p class="text-red-600 font-bold text-3xl mb-5">দুঃখিত কোন পণ্য পাওয়া যায়নি</p>
+                <p class="text-red-600 font-bold text-3xl mb-5">Sorry! No Product Found!</p>
 
                 <a href="{{route('homepage')}}" class="text-center rounded-md border-2 border-primary bg-primary px-6 py-2 text-base font-medium text-font-color-light shadow-sm hover:bg-white hover:text-primary text-white">Home</a>
             </div>
