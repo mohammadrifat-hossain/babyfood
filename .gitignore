@@ -20,3 +20,4 @@ yarn-error.log
 /public/build
 /public/l-build
 /resources/views/l-build
+package.json
