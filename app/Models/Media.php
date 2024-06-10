@@ -24,7 +24,7 @@ class Media extends Model
             $output['small'] = asset('img/no-image.png');
         }
         if(file_exists(public_path("uploads/$year_month/medium_$file_name" . $prefix_extension))){
-            $output['medium'] = asset("uploads/$year_month/medium_$file_name" . $prefix_extension);
+        $output['medium'] = asset("uploads/$year_month/medium_$file_name" . $prefix_extension);
         }else{
             $output['medium'] = asset('img/no-image.png');
         }

@@ -1,8 +1,10 @@
 /*
 
 
-   Buy a license:
-   License agreement:
+   Magic Zoom Plus v5.2.6 DEMO
+   Copyright 2018 Magic Toolbox
+   Buy a license: https://www.magictoolbox.com/magiczoomplus/
+   License agreement: https://www.magictoolbox.com/license/
 
 
 */

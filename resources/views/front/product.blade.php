@@ -7,19 +7,19 @@
         'keywords' => $product->meta_tags
     ])
 
-    <link href="{{asset('front/magiczoomplus.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('front/magiczoomplus.css')}}?c=1" rel="stylesheet" type="text/css"/>
 
     <link rel="stylesheet" href="{{asset('front/OwlCarousel/dist/assets/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('front/OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
 @endsection
 
 @section('master')
-@include('front.layouts.breadcrumb', [
-    'title' => $product->title,
-    'url' => $product->route
-])
-
 <div class="container">
+    @include('front.layouts.breadcrumb', [
+        'title' => $product->title,
+        'url' => $product->route
+    ])
+
     <div class="mt-6">
         <div class="grid grid-cols-1 md:grid-cols-9 gap-14">
             <div class="col-span-1 md:col-span-5">
@@ -113,7 +113,7 @@
 @section('footer')
     <script src="{{asset('front/OwlCarousel/dist/owl.carousel.min.js')}}"></script>
 
-    <script src="{{asset('front/magiczoomplus.js')}}"></script>
+    <script src="{{asset('front/magiczoomplus.js')}}?c=1"></script>
 
     <script>
         $('.owl-carousel_normal').owlCarousel({
