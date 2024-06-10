@@ -23,7 +23,7 @@
     <div class="mt-6">
         <div class="grid grid-cols-1 md:grid-cols-9 gap-14">
             <div class="col-span-1 md:col-span-5">
-                <div class="grid grid-cols-8 gap-2 zoom-gallery">
+                <div class="grid grid-cols-8 gap-2">
                     <div class="hidden md:block">
                         <div class="grid grid-cols-1 gap-2">
                             <div class="block shadow cursor-pointer hover:shadow-lg">
@@ -39,9 +39,11 @@
                     </div>
 
                     <div class="col-span-8 md:col-span-7">
-                        <a href="{{$product->img_paths['original']}}" class="MagicZoom" id="zoom-v">
-                            <img src="{{$product->img_paths['original']}}" alt="{{$product->title}}" class="w-full h-auto object-center shadow-md" width="300" height="160" id="product_preview">
-                        </a>
+                        <div class="zoom-gallery real">
+                            <a href="{{$product->img_paths['original']}}" class="MagicZoom" id="zoom-v">
+                                <img src="{{$product->img_paths['original']}}" alt="{{$product->title}}" class="w-full h-auto object-center shadow-md" width="300" height="160" id="product_preview">
+                            </a>
+                        </div>
 
                         <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-2 mt-4 md:hidden">
                             <div class="block shadow cursor-pointer hover:shadow-lg">
