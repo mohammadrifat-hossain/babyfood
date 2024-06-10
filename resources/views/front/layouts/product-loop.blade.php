@@ -18,7 +18,7 @@
 
         <div class="absolute left-0 top-0 w-full h-full flex justify-center content-center items-center">
             <div class="-mt-16 group-hover:mt-0 transition-all duration-300 opacity-0 group-hover:opacity-100 invisible group-hover:visible">
-                <a href="{{$product->route}}" class="bg-white px-6 py-2 rounded-full font-[300] text-center h-10 overflow-hidden button-group hover:bg-[#222] hover:text-white mb-2 inline-block">
+                <a href="{{$product->route}}" class="bg-white px-6 py-2 rounded-full font-[300] text-center h-10 overflow-hidden button-group hover:bg-[#222] hover:text-white inline-block">
                     <span class="relative block top-[0] button-group-hover:-top-[30px] transition-all duration-300">View Details</span>
 
                     <span class="inline-block relative top-[10px] button-group-hover:top-[-25px] transition-all duration-300">
@@ -28,7 +28,7 @@
                         </svg>
                     </span>
                 </a>
-
+                <br>
                 <a href="{{route('cart.directOrder', ['product' => $product->id])}}" class="bg-white px-6 py-2 rounded-full text-center h-10 overflow-hidden button-group hover:bg-[#222] hover:text-white font-[300] inline-block">
                     <span class="relative block top-[0] button-group-hover:-top-[30px] transition-all duration-300">Quick Shop</span>
 
