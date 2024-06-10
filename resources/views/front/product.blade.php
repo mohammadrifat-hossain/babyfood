@@ -40,7 +40,7 @@
 
                     <div class="col-span-8 md:col-span-7">
                         <div class="zoom-gallery real">
-                            <a href="{{$product->img_paths['original']}}" class="MagicZoom" id="zoom-v" data-options="zoomMode:true; zoomOn:'hover';" id="product_preview_href">
+                            <a href="{{$product->img_paths['original']}}" class="MagicZoom" id="zoom-v" data-options="zoomMode:true; zoomOn:'hover';">
                                 <img src="{{$product->img_paths['original']}}" alt="{{$product->title}}" class="w-full h-auto object-center shadow-md" width="300" height="160" id="product_preview">
                             </a>
                         </div>

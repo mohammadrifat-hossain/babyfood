@@ -279,7 +279,7 @@
     <!-- Sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.3.0/dist/sweetalert2.all.min.js"></script>
 
-    <script src="{{asset('front/custom.js')}}?c=4"></script>
+    <script src="{{asset('front/custom.js')}}?c=5"></script>
 
     @if(session('success-alert'))
     <script>
