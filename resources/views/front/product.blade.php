@@ -22,16 +22,16 @@
 
     <div class="mt-6">
         <div class="grid grid-cols-1 md:grid-cols-9 gap-14">
-            <div class="col-span-1 md:col-span-5">
+            <div class="col-span-1 md:col-span-4">
                 <div class="grid grid-cols-8 gap-2">
                     <div class="hidden md:block">
                         <div class="grid grid-cols-1 gap-2">
-                            <div class="block shadow cursor-pointer hover:shadow-lg">
+                            <a data-slide-id="zoom" data-zoom-id="zoom-v" href="{{$product->img_paths['original']}}" data-image="{{$product->img_paths['original']}}" data-zoom-id="zoom-v" class="block shadow cursor-pointer hover:shadow-lg">
                                 <img src="{{$product->img_paths['small']}}" onclick="changeProductImage('{{$product->img_paths['original']}}');" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
-                            </div>
+                            </a>
 
                             @foreach ($product->Gallery as $gallery)
-                                <div class="block shadow cursor-pointer hover:shadow-lg" onclick="changeProductImage('{{$gallery->paths['original']}}');">
+                                <div data-slide-id="zoom" data-zoom-id="zoom-v" href="{{$gallery->paths['original']}}" data-image="{{$gallery->paths['original']}}" class="block shadow cursor-pointer hover:shadow-lg" onclick="changeProductImage('{{$gallery->paths['original']}}');">
                                     <img src="{{$gallery->paths['small']}}" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
                                 </div>
                             @endforeach
@@ -46,12 +46,12 @@
                         </div>
 
                         <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-2 mt-4 md:hidden">
-                            <div class="block shadow cursor-pointer hover:shadow-lg">
+                            <a data-slide-id="zoom" data-zoom-id="zoom-v" href="{{$product->img_paths['original']}}" data-image="{{$product->img_paths['original']}}" data-zoom-id="zoom-v" class="block shadow cursor-pointer hover:shadow-lg">
                                 <img src="{{$product->img_paths['small']}}" onclick="changeProductImage('{{$product->img_paths['original']}}');" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
-                            </div>
+                            </a>
 
                             @foreach ($product->Gallery as $gallery)
-                                <div class="block shadow cursor-pointer hover:shadow-lg" onclick="changeProductImage('{{$gallery->paths['original']}}');">
+                                <div data-slide-id="zoom" data-zoom-id="zoom-v" href="{{$gallery->paths['original']}}" data-image="{{$gallery->paths['original']}}" class="block shadow cursor-pointer hover:shadow-lg" onclick="changeProductImage('{{$gallery->paths['original']}}');">
                                     <img src="{{$gallery->paths['small']}}" width="80" height="80" alt="{{$product->title}}" class="w-full h-20 object-center object-cover">
                                 </div>
                             @endforeach
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <div class="col-span-1 md:col-span-4">
+            <div class="col-span-1 md:col-span-5">
                 <h1 class="text-sm md:text-2xl font-medium tracking-tight text-[#222]">{{$product->title}}</h1>
 
                 <p class="mt-4 text-xl text-[#7d7d7d] font-medium mb-8"><span class="single_product_price">{{$product->prices['sale_price']}} Tk</span> @if($product->prices['regular_price'] > 0)<span class="text-black line-through text-xl">{{$product->prices['regular_price']}} Tk</span>@endif</p>

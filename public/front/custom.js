@@ -19,7 +19,6 @@ function cAlert(type, text){
 
 function changeProductImage(path){
     document.getElementById('product_preview').src = path;
-    document.getElementById('zoom-v').href = path;
 }
 function updateProQuantity(type){
     // console.log(type);
