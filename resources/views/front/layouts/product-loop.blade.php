@@ -2,16 +2,16 @@
     <div class="relative overflow-hidden group">
         <div class="group-hover:scale-110 transition duration-1000">
             <a href="{{$product->route}}" class="block group-hover:hidden h-full">
-                <img src="{{$product->img_paths['medium']}}" class="w-full h-full object-cover" alt="{{$product->title}}">
+                <img src="{{$product->img_paths['original']}}" class="w-full h-full object-cover" alt="{{$product->title}}">
             </a>
 
             @if(count($product->Gallery))
             <a href="{{$product->route}}" class="hidden group-hover:block h-full">
-                <img src="{{$product->Gallery[0]->paths['medium']}}" class="w-full h-full object-cover" alt="{{$product->title}}">
+                <img src="{{$product->Gallery[0]->paths['original']}}" class="w-full h-full object-cover" alt="{{$product->title}}">
             </a>
             @else
             <a href="{{$product->route}}" class="hidden group-hover:block h-full">
-                <img src="{{$product->img_paths['medium']}}" class="w-full h-full object-cover" alt="{{$product->title}}">
+                <img src="{{$product->img_paths['original']}}" class="w-full h-full object-cover" alt="{{$product->title}}">
             </a>
             @endif
         </div>

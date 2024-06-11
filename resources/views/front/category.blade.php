@@ -16,7 +16,7 @@
         'url' => $category->route
     ])
 
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mb-6 gap-6 text-center">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-6 gap-6 text-center">
         @foreach ($products as $product)
             @include('front.layouts.product-loop')
         @endforeach
