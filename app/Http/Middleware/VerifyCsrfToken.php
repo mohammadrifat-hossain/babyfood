@@ -15,6 +15,6 @@ class VerifyCsrfToken extends Middleware
         'oms/upload',
         'oms/media/upload',
         'oms/media/image-upload',
-        'oms/products/select-list'
+        'oms/product/products/select-list'
     ];
 }
