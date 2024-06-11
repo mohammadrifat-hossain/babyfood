@@ -116,6 +116,7 @@
             ajax: {
                 url: '{{ route("back.products.selectList") }}',
                 dataType: 'json',
+                method: 'POST',
                 data: function (params) {
                     return {
                         q: $.trim(params.term)

@@ -160,7 +160,7 @@ Route::middleware('auth', 'isAdmin')->group(function () {
         // Product CRUD
         Route::post('products/attribute/apply', [ProductController::class, 'attributeApply'])->name('back.products.attributeApply');
         Route::post('products/table', [ProductController::class, 'table'])->name('back.products.table');
-        Route::get('products/select-list', [ProductController::class, 'selectList'])->name('back.products.selectList');
+        Route::post('products/select-list', [ProductController::class, 'selectList'])->name('back.products.selectList');
         Route::post('products/product-data-json', [ProductController::class, 'productDataJson'])->name('back.products.productDataJson');
         Route::get('products/reviews', [ProductController::class, 'reviews'])->name('back.products.reviews');
         Route::get('products/reviews-action/{review}/{action}', [ProductController::class, 'reviewAction'])->name('back.products.reviewAction');
