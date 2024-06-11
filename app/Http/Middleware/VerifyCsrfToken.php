@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'oms/upload',
         'oms/media/upload',
-        'oms/media/image-upload'
+        'oms/media/image-upload',
+        'oms/products/select-list'
     ];
 }
