@@ -211,6 +211,8 @@
                                     <input type="file" class="custom-file-input image_upload" name="image" accept="image/*" required="">
                                     <label class="custom-file-label">Choose file...</label>
                                 </div>
+
+                                <p><small>All Image Size must 700*1050px or 700*700px & Image size will not getter then 300KB</small></p>
                             </div>
                         </div>
                     </div>
@@ -227,6 +229,8 @@
                             <input name="file" accept="image/*" type="file" multiple />
                         </div>
                     </div>
+
+                    <p><small>All Image Size must 700*1050px or 700*700px & Image size will not getter then 300KB</small></p>
                 </div>
             </div>
 

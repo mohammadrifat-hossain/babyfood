@@ -264,6 +264,8 @@
                                     <input type="file" class="custom-file-input image_upload" name="image" accept="image/*">
                                     <label class="custom-file-label">Choose file...</label>
                                 </div>
+
+                                <p><small>All Image Size must 700*1050px or 700*700px & Image size will not getter then 300KB</small></p>
                             </div>
                         </div>
                     </div>
@@ -291,6 +293,8 @@
                             </div>
                         @endforeach
                     </div>
+
+                    <p><small>All Image Size must 700*1050px or 700*700px & Image size will not getter then 300KB</small></p>
                 </div>
             </div>
 
