@@ -472,7 +472,7 @@
     });
 </script>
 
-@if($product_2)
+@if(isset($product_2) && $product_2)
 <script>
     fbq('track', 'ViewContent', {
         value: {{$product_2->first_price}},
