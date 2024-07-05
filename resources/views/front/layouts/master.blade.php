@@ -77,7 +77,7 @@
 
                           <!-- Logo -->
                           <div class="ml-4 lg:ml-0">
-                            <a href="{{route('homepage')}}"><img class="h-14 w-auto max-w-full object-contain object-left" width="135" height="55" src="{{$settings_g['logo'] ?? ''}}" alt="{{$settings_g['title'] ?? env('APP_NAME')}}"></a>
+                            <a href="{{route('homepage')}}"><img class="max-w-full object-contain object-left h-[85%]" width="135" height="55" src="{{$settings_g['logo'] ?? ''}}" alt="{{$settings_g['title'] ?? env('APP_NAME')}}"></a>
                           </div>
                       </div>
 
