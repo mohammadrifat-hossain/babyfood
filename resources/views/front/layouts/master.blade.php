@@ -62,7 +62,7 @@
         </svg>
     </div>
     <header class="relative bg-[white]">
-        <p class="flex items-center justify-center text-white py-2 bg-[#222222] text-center">{!! $settings_g['headline'] !!}</p>
+        <p class="flex items-center justify-center text-white py-2 bg-[#222222] text-center">{!! $settings_g['headline'] ?? '' !!}</p>
 
         <div class="bg-white relative">
             <nav aria-label="Top" class="container">

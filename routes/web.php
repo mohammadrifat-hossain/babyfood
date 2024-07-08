@@ -55,6 +55,6 @@ Route::get('auth/order-details/{id}', [AuthController::class, 'orderDetails'])->
 // Test Routes
 Route::get('test',             [TestController::class, 'test'])->name('test');
 // Route::get('import',             [TestController::class, 'import'])->name('import');
-// Route::get('config',             [TestController::class, 'config'])->name('config');
+Route::get('config',             [TestController::class, 'config'])->name('config');
 Route::get('cache-clear', [TestController::class, 'cacheClear']);
 Route::get('cache-clear-admin', [TestController::class, 'cacheClearAdmin'])->name('cacheClearAdmin');
