@@ -12,6 +12,27 @@
 @endsection
 
 @section('master')
+
+    <div class="flex items-center flex-col md:flex-row gap-5 justify-between">
+        <div class="flex items-center justify-center md:w-[70%] p-4">
+            <div class="flex flex-col gap-5">
+                <div class="flex items-center justify-between">
+                    <p class="">Fast Food</p>
+                    <img src="https://www.pikpng.com/pngl/b/51-510664_chef-hat-clipart-black-and-white-vector-chef.png" alt="Hat" class="w-[50px]" />
+                </div>
+                <h2 class="text-5xl font-semibold">Fresh & Healthy Food</h2>
+                <a href="/search?search=" class="px-5 py-2 rounded-full border hover:shadow-lg transition-all flex justify-center items-center gap-1">Shop Now <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+                </a>
+            </div>
+        </div>
+        <div class="bg-indigo-600 w-[40%]">
+            <img src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="Banner Photo" class="w-[400px] md:-ml-[200px] pointer-events-none"/>
+        </div>
+    </div>
+
+    
     <div class="container">
         <div id="carouselExampleCaptions" class="relative" data-te-carousel-init data-te-ride="carousel">
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
@@ -103,86 +124,481 @@
         <div class="text-center">
             <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-7 mb-10">
-                @foreach ($categories as $key => $category)
-                    @if($key < 4)
-                    <a href="{{$category->route}}" class="relative overflow-hidden group">
-                        <img src="{{$category->img_paths['medium']}}" alt="{{$category->title}}">
+            <!-- TODO: loop through this list with actual categories -->
+            <div class="flex flex-wrap gap-5 items-center justify-center">
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Fruits & Vegetables</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/2153/2153786.png" alt="Fruits & Vegetables" class="h-[50px]">
+                </div>
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Meat & Seafood</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/7471/7471961.png" alt="Meat & Seafood" class="h-[50px]">
+                </div>
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Dairy & Eggs</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/2437/2437740.png" alt="Dairy & Eggs" class="h-[50px]">
+                </div>
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Bakery</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/3081/3081967.png" alt="Bakery" class="h-[50px]">
+                </div>
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Snacks & Sweets</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/3814/3814614.png" alt="Snacks & Sweets" class="h-[50px]">
+                </div>
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Beverages</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/3859/3859737.png" alt="Beverages" class="h-[50px]">
+                </div>
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Pantry Staples</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/12240/12240680.png" alt="Pantry Staples" class="h-[50px]">
+                </div>
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Frozen Foods</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/5029/5029236.png" alt="Frozen Foods" class="h-[50px]">
+                </div>
+                <div class="category p-4 border rounded-lg flex flex-col gap-3 items-center">
+                    <h3>Health Foods</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/561/561611.png" alt="Organic & Health Foods" class="h-[50px]">
+                </div>
+                
+            </div>
+        </div>
 
-                        <div class="absolute left-0 bottom-4 w-full">
-                            <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">{{$category->title}}</span>
+
+
+        <!-- product lists -->
+        <div class="mt-10 p-3 border-t">
+            <h2 class="text-2xl font-bold flex items-center justify-between">Fresh Deals: The best of the week for less 
+                <a href="/search?search=" class="relative inline-block px-4 py-2 font-medium group text-base">
+                    <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                    <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+                    <span class="relative text-black group-hover:text-white transition-all">View More</span>
+                </a>
+            </h2>
+            <div class="mt-8">
+                <p class="max-w-[600px] text-neutral-500 text-sm">Discover unbeatable savings with Fresh Deals! Every week, we bring you the best offers on a wide range of products, from electronics and home essentials to fashion and beauty. Shop top-quality items at discounted prices and enjoy incredible value for your money.</p>
+            </div>
+            <div class="mt-5">
+                <!-- carousel here -->
+                 <!-- card start -->
+                 <div class="owl-carousel owl-carousel_normal">
+                            <div class="bg-white rounded-lg overflow-hidden border shadow-sm ">
+                                <a href="#">
+                                    <img class="max-w-[200px] mx-auto" src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="Product Name" />
+                                </a>
+                                <div class="p-3 md:p-6">
+                                    <div class="flex items-baseline">
+                                    <span class="inline-block bg-teal-200 text-teal-800 py-1 px-2 md:px-4 text-xs rounded-full uppercase font-semibold ">New</span>
+                                    <div class="ml-2 text-gray-600 text-xs uppercase font-semibold tracking-wide">
+                                        <h4>babyFood</h4>
+                                    </div>
+                                    </div>
+                                    <h2 class="mt-2 font-semibold leading-tight truncate text-xl">
+                                        <a href="#" class="hover:underline transition-all">Healthy Burger for your health</a>
+                                    </h2>
+
+                                    <div class="flex items-center justify-between flex-col md:flex-row mt-3">
+                                        <div class="">
+                                            <div class="flex items-center">
+                                                <span class="font-bold text-xl">৳599</span>
+                                                <h3 class="text-gray-600 text-sm flex items-center">/ <span class="line-through">600</span></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-teal-600 font-semibold">
+                                                <span>4.4</span>
+                                            </span>
+                                            <span class="ml-2 text-gray-600 text-sm">(34 reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 flex items-center justify-between ">
+                                        <button class="px-3 md:px-5 py-2 rounded-full bg-green-700 text-white hover:bg-green-800">Buy Now</button>
+                                        <div class="cursor-pointer flex items-center justify-center gap-1 group xl:border xl:px-2 xl:py-1 xl:rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                            </svg>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!-- card end -->
+            </div>
+            <!-- carousel to here -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="flex items-center md:items-start justify-center md:justify-between flex-col md:flex-row gap-5 mt-10">
+            <div class="p-3 border-t w-full">
+                <h2 class="text-3xl font-bold flex items-center justify-between">Fresh Vegitables
+                    <a href="/search?search=" class="relative inline-block px-4 py-2 font-medium group text-base">
+                        <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                        <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+                        <span class="relative text-black group-hover:text-white transition-all">View More</span>
                     </a>
-                    @endif
-                @endforeach
+                </h2>
+                <div class="mt-8">
+                    <p class="max-w-[600px] text-neutral-500">Take a look at these popular things that are gaining a lot of attention, ranging from regular customer favorites to exclusive items that are hard to obtain elsewhere!</p>
+                </div>
+                <div class="mt-5">
+                    <div>
+                        
+                        <!-- card start -->
+                        <div class="owl-carousel owl-carousel_normal">
+                            <div class="bg-white rounded-lg overflow-hidden border shadow-sm ">
+                                <a href="#" class="hover:underline transition-all">
+                                    <img class="max-w-[200px] mx-auto" src="https://png.pngtree.com/png-clipart/20230526/ourmid/pngtree-vegetables-and-fruits-in-a-basket-made-with-generative-ai-png-image_7110313.png" alt="Product Name" />
+                                </a>
+                                <div class="p-3 md:p-6">
+                                    <div class="flex items-baseline">
+                                    <span class="inline-block bg-teal-200 text-teal-800 py-1 px-2 md:px-4 text-xs rounded-full uppercase font-semibold ">New</span>
+                                    <div class="ml-2 text-gray-600 text-xs uppercase font-semibold tracking-wide">
+                                        <h4>babyFood</h4>
+                                    </div>
+                                    </div>
+                                    <h2 class="mt-2 font-semibold leading-tight truncate text-xl">
+                                        <a href="#" class="hover:underline transition-all">Healthy Burger for your health</a>
+                                    </h2>
+
+                                    <div class="flex items-center justify-between flex-col md:flex-row mt-3">
+                                        <div class="">
+                                            <div class="flex items-center">
+                                                <span class="font-bold text-xl">৳599</span>
+                                                <h3 class="text-gray-600 text-sm flex items-center">/ <span class="line-through">600</span></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-teal-600 font-semibold">
+                                                <span>4.4</span>
+                                            </span>
+                                            <span class="ml-2 text-gray-600 text-sm">(34 reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 flex items-center justify-between ">
+                                        <button class="px-3 md:px-5 py-2 rounded-full bg-green-700 text-white hover:bg-green-800">Buy Now</button>
+                                        <div class="cursor-pointer flex items-center justify-center gap-1 group xl:px-2 xl:py-1 xl:rounded-full xl:border">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                            </svg>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="mt-10 p-3 border-t">
+            <h2 class="text-2xl font-bold flex items-center justify-between">Baby Foods 
+                <a href="/search?search=" class="relative inline-block px-4 py-2 font-medium group text-base">
+                    <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                    <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+                    <span class="relative text-black group-hover:text-white transition-all">View More</span>
+                </a>
+            </h2>
+            <div class="mt-8">
+                <p class="max-w-[600px] text-neutral-500">Give your baby the best start with our range of nutritious baby food. Made with high-quality, natural ingredients, our baby food is designed to support your child's growth and development.</p>
             </div>
 
-            @foreach ($home_blocks as $key => $home_block)
-                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">{{$home_block->title}}</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
+            <div class="mt-5">
+                <!-- card start -->
+                <div class="owl-carousel owl-carousel_normal">
+                            <div class="bg-white rounded-lg overflow-hidden border shadow-sm ">
+                                <a href="#" class="hover:underline transition-all">
+                                    <img class="max-w-[200px] mx-auto" src="https://www.nicepng.com/png/detail/951-9516652_nestle-cerelac-mixed-fruit-and-wheat-with-milk.png" alt="Product Name" />
+                                </a>
+                                <div class="p-3 md:p-6">
+                                    <div class="flex items-baseline">
+                                    <span class="inline-block bg-teal-200 text-teal-800 py-1 px-2 md:px-4 text-xs rounded-full uppercase font-semibold ">New</span>
+                                    <div class="ml-2 text-gray-600 text-xs uppercase font-semibold tracking-wide">
+                                        <h4>babyFood</h4>
+                                    </div>
+                                    </div>
+                                    <h2 class="mt-2 font-semibold leading-tight truncate text-xl">
+                                        <a href="#" class="hover:underline transition-all">Healthy Burger for your health</a>
+                                    </h2>
 
-                @php
-                    $products = $home_block->Products()->with('Gallery')->latest('id')->take(20)->get();
-                @endphp
+                                    <div class="flex items-center justify-between flex-col md:flex-row mt-3">
+                                        <div class="">
+                                            <div class="flex items-center">
+                                                <span class="font-bold text-xl">৳599</span>
+                                                <h3 class="text-gray-600 text-sm flex items-center">/ <span class="line-through">600</span></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-teal-600 font-semibold">
+                                                <span>4.4</span>
+                                            </span>
+                                            <span class="ml-2 text-gray-600 text-sm">(34 reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 flex items-center justify-between ">
+                                        <button class="px-3 md:px-5 py-2 rounded-full bg-green-700 text-white hover:bg-green-800">Buy Now</button>
+                                        <div class="cursor-pointer flex items-center justify-center gap-1 group xl:px-2 xl:py-1 xl:rounded-full xl:border">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                            </svg>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                        </div>
 
-                <div class="owl-carousel_normal owl-carousel owl-theme mb-10">
-                    @foreach ($products as $product)
-                        @include('front.layouts.product-loop')
-                    @endforeach
-                </div>
-
-                <a href="{{$home_block->route}}" class="px-10 py-3 bg-[#222] rounded-full text-white font-medium mb-4 relative overflow-hidden group inline-block"><span class="absolute top-0 w-full h-full bg-[#d79290] z-0 -left-full group-hover:left-0 transition-all duration-300"></span> <span class="relative z-10">View All</span></a>
-
-                @if($key == 0)
-                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-7">
-                    @foreach ($categories as $c_key => $category)
-                        @if($c_key > 3 && $c_key < 7)
-                            <a href="{{$category->route}}" class="relative overflow-hidden group h-full {{$c_key == 5 ? 'md:col-span-2' : ''}}">
-                                <img src="{{$category->img_paths['original']}}" class="w-full group-hover:scale-110 transition duration-1000 h-full object-cover" alt="{{$category->title}}">
-
-                                <div class="absolute left-0 bottom-4 w-full">
-                                    <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">{{$category->title}}</span>
+                                    </div>
                                 </div>
-                            </a>
-                        @endif
-                    @endforeach
-                </div>
-                @endif
+                            </div>
+                        </div>
+                        <!-- card end -->
+            </div>
+        </div>
 
-                @if($key == 1)
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 mb-8">
-                    @foreach ($categories as $c_key => $category)
-                    @if($c_key > 6 && $c_key < 11)
-                    <a href="{{$category->route}}" class="relative block">
-                        <img src="{{$category->img_paths['original']}}" class="w-full" alt="{{$category->title}}">
+        <!-- start -->
+        <div class="bg-white  h-full py-6 sm:py-8 lg:py-12">
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                
 
-                        <div class="absolute left-0 top-0 w-full h-full flex items-center justify-center text-3xl md:text-5xl">
-                            <span class="font-shadow">{{$category->title}}</span>
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+                    <!-- image - start -->
+                    <a href="#"
+                        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                        <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/rockcms/2021-12/211213-wee-groceries-se-405p-a36212.jpg" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 brightness-50 group-hover:brightness-100" />
+
+                        <div
+                            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <span class="relative ml-4 mb-3 inline-block  text-white md:ml-5 text-xl font-bold">Grocery</span>
+                            <span class="relative ml-4 mb-3 inline-block  text-white md:ml-5 text-sm">Fresh & Healthy to your home</span>
                         </div>
                     </a>
-                    @endif
-                    @endforeach
+                    <!-- image - end -->
+
+                    <!-- image - start -->
+                    <a href="#"
+                        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                        <img src="https://miro.medium.com/v2/resize:fit:1107/1*kQ5xXaLUK3S8EwnU4-zCxg.png" loading="lazy" alt="Photo by Magicle" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 brightness-50 group-hover:brightness-100" />
+
+                        <div
+                            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <span class="relative ml-4 mb-3 inline-block  text-white md:ml-5 text-xl font-bold">Baby Food</span>
+                            <span class="relative ml-4 mb-3 inline-block  text-white md:ml-5 text-sm">Get 100% authentic Baby Products</span>
+                        </div>
+                    </a>
+                    <!-- image - end -->
+
+                    <!-- image - start -->
+                    <a href="#"
+                        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/groceries-shopping-royalty-free-image-1569525319.jpg?crop=1xw:0.84415xh;center,top" loading="lazy" alt="Photo by Martin Sanchez" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 brightness-50 group-hover:brightness-100" />
+
+                        <div
+                            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <span class="relative ml-4 mb-3 inline-block  text-white md:ml-5 text-xl font-bold">Healthy Food For Women</span>
+                            <span class="relative ml-4 mb-3 inline-block  text-white md:ml-5 text-sm">For your fitness and health</span>
+                        </div>
+                    </a>
+                    <!-- image - end -->
+
+                    <!-- image - start -->
+                    <a href="#"
+                        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+                        <img src="https://st4.depositphotos.com/4233795/30234/i/450/depositphotos_302342282-stock-photo-delivery-woman-in-blue-uniform.jpg" loading="lazy" alt="Photo by Lorenzo Herrera" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 brightness-50 group-hover:brightness-100" />
+
+                        <div
+                            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <span class="relative ml-4 mb-3 inline-block  text-white md:ml-5 text-xl font-bold">Home Delivery</span>
+                            <span class="relative ml-4 mb-3 inline-block  text-white md:ml-5 text-sm">Fast delivery to your home</span>
+                        </div>
+                    </a>
+                    <!-- image - end -->
                 </div>
-
-                <h2 class="relative text-2xl mt-12 mb-10"><span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span> <span class="text-black">Featured Categories</span> <span class="w-6 md:w-16 h-0.5 bg-[#222222] inline-block mb-1.5"></span></h2>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-7">
-                    @foreach ($categories as $c_key => $category)
-                        @if($c_key > 10 && $c_key < 15)
-                            <a href="{{$category->route}}" class="relative overflow-hidden group">
-                                <img src="{{$category->img_paths['medium']}}" alt="{{$category->title}}">
-
-                                <div class="absolute left-0 bottom-4 w-full">
-                                    <span class="bg-white px-4 py-2.5 inline-block text-sm font-semibold hover:bg-[#222] hover:text-white t transition duration-300">{{$category->title}}</span>
-                                </div>
-                            </a>
-                        @endif
-                    @endforeach
-                </div>
-                @endif
-            @endforeach
+            </div>
         </div>
+        <!-- end -->
+        
+
+        
+
+
+        <div class="mt-10 p-3 border-t">
+            <h2 class="text-2xl font-bold flex items-center justify-between">Chocolates & Cereal
+                <a href="/search?search=" class="relative inline-block px-4 py-2 font-medium group text-base">
+                    <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                    <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+                    <span class="relative text-black group-hover:text-white transition-all">View More</span>
+                </a>
+            </h2>
+            <div class="mt-8">
+                <h4 class="max-w-[600px] text-neutral-500">Indulge in the rich, velvety flavors of premium chocolates, crafted to perfection for those who appreciate the finer things in life. From dark, milk, and white chocolates to gourmet truffles and pralines, our selection caters to every chocolate lover's craving.</h4>
+            </div>
+
+            <div class="mt-5">
+                <!-- card start -->
+                <div class="owl-carousel owl-carousel_normal">
+                            <div class="bg-white rounded-lg overflow-hidden border shadow-sm ">
+                                <a href="#" class="hover:underline transition-all">
+                                    <img class="max-w-[200px] mx-auto" src="https://www.premierproteincereal.com/wp-content/uploads/2022/01/Premier-Protein-Chocolate-Almond-Cereal.png" alt="Product Name" />
+                                </a>
+                                <div class="p-3 md:p-6">
+                                    <div class="flex items-baseline">
+                                    <span class="inline-block bg-teal-200 text-teal-800 py-1 px-2 md:px-4 text-xs rounded-full uppercase font-semibold ">New</span>
+                                    <div class="ml-2 text-gray-600 text-xs uppercase font-semibold tracking-wide">
+                                        <h4>babyFood</h4>
+                                    </div>
+                                    </div>
+                                    <h2 class="mt-2 font-semibold leading-tight truncate text-xl">
+                                        <a href="#" class="hover:underline transition-all">Healthy Burger for your health</a>
+                                    </h2>
+
+                                    <div class="flex items-center justify-between flex-col md:flex-row mt-3">
+                                        <div class="">
+                                            <div class="flex items-center">
+                                                <span class="font-bold text-xl">৳599</span>
+                                                <h3 class="text-gray-600 text-sm flex items-center">/ <span class="line-through">600</span></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-teal-600 font-semibold">
+                                                <span>4.4</span>
+                                            </span>
+                                            <span class="ml-2 text-gray-600 text-sm">(34 reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 flex items-center justify-between ">
+                                        <button class="px-3 md:px-5 py-2 rounded-full bg-green-700 text-white hover:bg-green-800">Buy Now</button>
+                                        <div class="cursor-pointer flex items-center justify-center gap-1 group xl:px-2 xl:py-1 xl:rounded-full xl:border">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                            </svg>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- card end -->
+            </div>
+        </div>
+
+
+
+
+
+        <div class="mt-10 p-3 border-t">
+            <h2 class="text-2xl font-bold flex items-center justify-between">Womens Cosmetics 
+                <a href="/search?search=" class="relative inline-block px-4 py-2 font-medium group text-base">
+                    <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                    <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+                    <span class="relative text-black group-hover:text-white transition-all">View More</span>
+                </a>
+            </h2>
+            <div class="mt-8">
+                <h4 class="max-w-[600px] text-neutral-500">Elevate your beauty routine with our premium range of women's cosmetics. From flawless foundations and vibrant eyeshadows to long-lasting lipsticks and nourishing skincare, we offer everything you need to create stunning looks for any occasion.</h4>
+            </div>
+
+            <div class="mt-5">
+                <!-- card start -->
+                <div class="owl-carousel owl-carousel_normal">
+                            <div class="bg-white rounded-lg overflow-hidden border shadow-sm ">
+                                <a href="#">
+                                    <img class="max-w-[200px] mx-auto" src="https://img.freepik.com/free-vector/bag-with-cosmetics-realistic-composition-with-isolated-image-open-vanity-case-with-brushes-lipstick-illustration_1284-57081.jpg" alt="Product Name" />
+                                </a>
+                                <div class="p-3 md:p-6">
+                                    <div class="flex items-baseline">
+                                    <span class="inline-block bg-teal-200 text-teal-800 py-1 px-2 md:px-4 text-xs rounded-full uppercase font-semibold ">New</span>
+                                    <div class="ml-2 text-gray-600 text-xs uppercase font-semibold tracking-wide">
+                                        <h4>babyFood</h4>
+                                    </div>
+                                    </div>
+                                    <h2 class="mt-2 font-semibold leading-tight truncate text-xl">
+                                        <a href="#" class="hover:underline transition-all">Healthy Burger for your health</a>
+                                    </h2>
+
+                                    <div class="flex items-center justify-between flex-col md:flex-row mt-3">
+                                        <div class="">
+                                            <div class="flex items-center">
+                                                <span class="font-bold text-xl">৳599</span>
+                                                <h3 class="text-gray-600 text-sm flex items-center">/ <span class="line-through">600</span></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-teal-600 font-semibold">
+                                                <span>4.4</span>
+                                            </span>
+                                            <span class="ml-2 text-gray-600 text-sm">(34 reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 flex items-center justify-between ">
+                                        <button class="px-3 md:px-5 py-2 rounded-full bg-green-700 text-white hover:bg-green-800">Buy Now</button>
+                                        <div class="cursor-pointer flex items-center justify-center gap-1 group xl:px-2 xl:py-1 xl:rounded-full xl:border">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                            </svg>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card end -->
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="flex flex-col md:flex-row items-center justify-center mt-6">
+            <div class="flex flex-col gap-4 my-20 max-w-[600px]">
+                <h3 class="text-5xl">Stay Home and get your daily needs <br/>from your Home</h3>
+                <p>Start your daily shopping from us.</p>
+                <div>
+                    <input type="text" class="px-4 py-2 rounded-full bg-white border outline-none focus:shadow-lg transition-all" placeholder="Enter your email">
+                    <button class="px-4 py-2 rounded-full bg-green-700 text-white hover:bg-green-800 transition-all">Subscribe</button>
+                </div>
+            </div>
+            <div>
+                <img src="https://static.vecteezy.com/system/resources/previews/001/212/826/non_2x/online-delivery-contactless-service-to-home-design-vector.jpg" alt="Home delivery man" class="max-w-[700px] w-full">
+            </div>
+        </div>
+
+
     </div>
 @endsection
 
@@ -203,18 +619,30 @@
             responsive: {
                 0: {
                     items: 2,
-                    margin: 10,
+                    // margin: 10,
+                },
+                400: {
+                    items: 2,
+                    // margin: 10,
                 },
                 600: {
-                    items: 4,
-                    margin: 20,
+                    items: 3,
+                    // margin: 20,
                 },
                 1000: {
+                    items: 4,
+                    // margin: 30,
+                },
+                1400: {
                     items: 5,
-                    margin: 30,
-                }
+                    // margin: 30,
+                },
             },
             lazyLoad: false
         });
     </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
 @endsection

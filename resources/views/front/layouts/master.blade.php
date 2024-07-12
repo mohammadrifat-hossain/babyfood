@@ -35,6 +35,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 
     @vite('resources/front/css/app.css')
 
@@ -139,9 +141,9 @@
                 </div>
             </nav>
 
-            <nav class="hidden lg:block">
+            <nav class="hidden md:block">
                 <div class="container">
-                    <div class="px-16 mb-5">
+                    <div class="md:px-16 mb-5">
                         <div class="border-b">
                             @if(env('APP_MAIN_MENU') == 'Menu')
                                 @if($main_menu)
@@ -151,7 +153,138 @@
                                     @endforeach
                                     </ul>
                                 @else
-                                    <p>Please create "Main Menu"</p>
+                                <div class="flex  items-center flex-wrap grid-cols-2 justify-center space-x-6 py-4 gap-5 relative z-[99999]">
+                                    <!-- categories start -->
+                                    <div class=" group">
+                                        <div class="flex md:flex-col items-center cursor- gap-2 opacity-70 z-50 cursor-pointer">
+                                            <img src="https://freeiconshop.com/wp-content/uploads/edd/food-outline.png" alt="Prepared & Deli" class="w-8 h-8 hidden md:block">
+                                            <div class="flex items-center justify-center">
+                                                <span>Prepared & Deli</span>
+                                                <img src="https://www.svgrepo.com/show/304510/arrow-bottom.svg" alt="arrow bottom" class="h-[25px] w-[25px] group-hover:rotate-180 hidden md:block" >
+                                            </div>
+                                        </div>
+                                        <div class="absolute left-1/2 transform -translate-x-1/2 border hidden group-hover:block hover:block bg-white p-4 rounded shadow-lg w-full z-[9999999]">
+                                            <div class="relative">
+                                                <div class="flex items-center justify-center flex-col gap-2">
+                                                    <h5>BabyFoods</h5>
+                                                    <div class="max-w-[200px] w-full h-[2px] bg-black opacity-70"></div>
+                                                </div>
+                                                <ul class="grid grid-cols-2 md:grid-cols-5 mt-5 gap-5 text-center">
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                </ul>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" group">
+                                        <div class="flex md:flex-col items-center cursor- gap-2 opacity-70 z-50 cursor-pointer">
+                                            <img src="https://freeiconshop.com/wp-content/uploads/edd/food-outline.png" alt="Prepared & Deli" class="w-8 h-8 hidden md:block">
+                                            <div class="flex items-center justify-center">
+                                                <span>Prepared & Deli</span>
+                                                <img src="https://www.svgrepo.com/show/304510/arrow-bottom.svg" alt="arrow bottom" class="h-[25px] w-[25px] group-hover:rotate-180 hidden md:block" >
+                                            </div>
+                                        </div>
+                                        <div class="absolute left-1/2 transform -translate-x-1/2 border hidden group-hover:block hover:block bg-white p-4 rounded shadow-lg w-full z-[9999999]">
+                                            <div class="relative">
+                                                <div class="flex items-center justify-center flex-col gap-2">
+                                                    <h5>BabyFoods</h5>
+                                                    <div class="max-w-[200px] w-full h-[2px] bg-black opacity-70"></div>
+                                                </div>
+                                                <ul class="grid grid-cols-2 md:grid-cols-5 mt-5 gap-5 text-center">
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                </ul>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" group">
+                                        <div class="flex md:flex-col items-center cursor- gap-2 opacity-70 z-50 cursor-pointer">
+                                            <img src="https://freeiconshop.com/wp-content/uploads/edd/food-outline.png" alt="Prepared & Deli" class="w-8 h-8 hidden md:block">
+                                            <div class="flex items-center justify-center">
+                                                <span>Prepared & Deli</span>
+                                                <img src="https://www.svgrepo.com/show/304510/arrow-bottom.svg" alt="arrow bottom" class="h-[25px] w-[25px] group-hover:rotate-180 hidden md:block" >
+                                            </div>
+                                        </div>
+                                        <div class="absolute left-1/2 transform -translate-x-1/2 border hidden group-hover:block hover:block bg-white p-4 rounded shadow-lg w-full z-[9999999]">
+                                            <div class="relative">
+                                                <div class="flex items-center justify-center flex-col gap-2">
+                                                    <h5>BabyFoods</h5>
+                                                    <div class="max-w-[200px] w-full h-[2px] bg-black opacity-70"></div>
+                                                </div>
+                                                <ul class="grid grid-cols-2 md:grid-cols-5 mt-5 gap-5 text-center">
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                </ul>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" group">
+                                        <div class="flex md:flex-col items-center cursor- gap-2 opacity-70 z-50 cursor-pointer">
+                                            <img src="https://freeiconshop.com/wp-content/uploads/edd/food-outline.png" alt="Prepared & Deli" class="w-8 h-8 hidden md:block">
+                                            <div class="flex items-center justify-center">
+                                                <span>Prepared & Deli</span>
+                                                <img src="https://www.svgrepo.com/show/304510/arrow-bottom.svg" alt="arrow bottom" class="h-[25px] w-[25px] group-hover:rotate-180 hidden md:block" >
+                                            </div>
+                                        </div>
+                                        <div class="absolute left-1/2 transform -translate-x-1/2 border hidden group-hover:block hover:block bg-white p-4 rounded shadow-lg w-full z-[9999999]">
+                                            <div class="relative">
+                                                <div class="flex items-center justify-center flex-col gap-2">
+                                                    <h5>BabyFoods</h5>
+                                                    <div class="max-w-[200px] w-full h-[2px] bg-black opacity-70"></div>
+                                                </div>
+                                                <ul class="grid grid-cols-2 md:grid-cols-5 mt-5 gap-5 text-center">
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                    <li class="cursor-pointer hover:text-green-700">Chocolate</li>
+                                                </ul>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- categories end -->
+                                </div>
                                 @endif
                             @else
                             <ul class="text-center uppercase">
@@ -161,18 +294,42 @@
                             </ul>
                             @endif
                         </div>
+                       
                     </div>
                 </div>
             </nav>
 
-            <ul class="border absolute top-14 left-0 w-80 shadow max-w-full bg-white p-2 z-10 mobile_menu_hidden" id="mobile_menu">
+            
+
+            
+
+              
+            
+
+            <ul class="border absolute top-20 left-0 w-80 shadow max-w-full bg-white p-2 mobile_menu_hidden z-[9999999] h-screen" id="mobile_menu">
                 @if(env('APP_MAIN_MENU') == 'Menu')
                 @if($main_menu)
                     @foreach ($main_menu->SingleMenuItems as $menu_item)
                     <li><a href="{{$menu_item->menu_info['url']}}">{{$menu_item->menu_info['text']}}</a></li>
                     @endforeach
                 @else
-                    <li>Please create "Main Menu"</li>
+                    <div class="">
+                        <h1 class="text-2xl text-center font-bold">Logo</h1>
+                        <ul class="w-full flex items-center justify-center flex-col mt-5 gap-5">
+                            <li class="text-lg">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="text-lg">
+                                <a href="/shop">Shop</a>
+                            </li>
+                            <li class="text-lg">
+                                <a href="/aboutus">About Us</a>
+                            </li>
+                            <li class="text-lg">
+                                <a href="/contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
                 @endif
                 @else
                 <ul>
@@ -184,6 +341,7 @@
             </ul>
         </div>
     </header>
+    
 
     <div class="bg-primary fixed top-0 left-0 w-full py-2 top_search_hidden" id="search_modal">
         <div class="container">
@@ -207,6 +365,7 @@
     </div>
 
     @yield('master')
+    
 
     <footer class="bg-[#f6f6f8] pt-12">
         <div class="container">
