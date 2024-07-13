@@ -711,4 +711,8 @@ class LandingController extends Controller
             abort(404);
         }
     }
+
+    public function orderSuccessStatic(){
+        return view('front.orderSuccessStatic');
+    }
 }

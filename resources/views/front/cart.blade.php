@@ -238,7 +238,7 @@
                                 
 
                                 <dl class="flex items-center justify-between gap-4">
-                                    <dt class="text-base font-normal text-gray-500">Tax</dt>
+                                    <dt class="text-base font-normal text-gray-500">Delivery Charge</dt>
                                     <dd class="text-base font-medium text-gray-900">$100</dd>
                                 </dl>
                                 </div>

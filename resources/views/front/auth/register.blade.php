@@ -93,7 +93,7 @@
                 <div>
                 <label class="text-gray-800 text-sm mb-2 block">Full Name</label>
                     <div class="relative flex items-center flex-col">
-                        <input name="username" type="text" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 bg-slate-100 @error('name') border-red-500 @enderror" placeholder="Enter Fullname" name="name" />
+                        <input type="text" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 bg-slate-100 @error('name') border-red-500 @enderror" placeholder="Enter Fullname" name="name" />
                         
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4 top-3" viewBox="0 0 24 24">
                         <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
@@ -109,7 +109,7 @@
                 <div>
                 <label class="text-gray-800 text-sm mb-2 block">Email</label>
                     <div class="relative flex items-center flex-col">
-                        <input name="username" type="email" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 bg-slate-100 @error('email') border-red-500 @enderror" placeholder="Enter email" name="email" />
+                        <input type="email" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 bg-slate-100 @error('email') border-red-500 @enderror" placeholder="Enter email" name="email" />
                         
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4 top-3">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -123,7 +123,7 @@
                 <div>
                 <label class="text-gray-800 text-sm mb-2 block">Mobile Number</label>
                     <div class="relative flex items-center flex-col">
-                        <input name="username" type="number" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 bg-slate-100 @error('mobile_number') border-red-500 @enderror" placeholder="Enter Number" name="mobile_number" />
+                        <input type="number" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 bg-slate-100 @error('mobile_number') border-red-500 @enderror" placeholder="Enter Number" name="mobile_number" />
                         
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4 top-3">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
@@ -137,7 +137,7 @@
                 <div>
                 <label class="text-gray-800 text-sm mb-2 block">Full Address</label>
                     <div class="relative flex items-center flex-col">
-                        <input name="username" type="text" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 bg-slate-100 @error('address') border-red-500 @enderror" placeholder="Enter Address" name="address" />
+                        <input type="text" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 bg-slate-100 @error('address') border-red-500 @enderror" placeholder="Enter Address" name="address" />
                         
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4 top-3">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
@@ -152,7 +152,7 @@
                 <div>
                 <label class="text-gray-800 text-sm mb-2 block">Password</label>
                 <div class="relative flex items-center flex-col">
-                    <input name="password" type="password" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 @error('password') border-red-500 @enderror" placeholder="Enter password"  name="password"/>
+                    <input type="password" required class="w-full text-sm text-gray-800 border  px-4 py-3 rounded-lg outline-blue-600 @error('password') border-red-500 @enderror" placeholder="Enter password"  name="password"/>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4 top-3 cursor-pointer" viewBox="0 0 128 128">
                     <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                     </svg>
@@ -165,7 +165,7 @@
                 <div>
                 <label class="text-gray-800 text-sm mb-2 block">Confirm Password</label>
                 <div class="relative flex items-center flex-col">
-                    <input name="password" type="password" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600 bg-slate-100" placeholder="Enter password"  name="password_confirmation"/>
+                    <input type="password" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600 bg-slate-100" placeholder="Enter password"  name="password_confirmation"/>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4 top-3 cursor-pointer" viewBox="0 0 128 128">
                     <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                     </svg>
@@ -184,9 +184,30 @@
                 </div>
 
                 <div class="!mt-8">
-                <button type="submit" class="w-full shadow-xl py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
-                    Register
-                </button>
+                    <button type="submit" class="w-full shadow-xl py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                        Register
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-1">
+                    <div class="w-full h-[1px] bg-neutral-300"></div>
+                    <p>or</p>
+                    <div class="w-full h-[1px] bg-neutral-300"></div>
+                </div>
+
+                <div class="flex items-center justify-center flex-col gap-2">
+                    <button class="flex items-center gap-2 border px-4 py-2 rounded-lg hover:bg-slate-200 transition-all justify-center max-w-[300px] w-full">
+                        <span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" alt="google logo" class="w-5">
+                        </span>
+                        <span class="mt-1">Continue with Google</span>
+                    </button>
+                    <button class="flex items-center gap-2 border px-4 py-2 rounded-lg hover:bg-slate-200 transition-all justify-center max-w-[300px] w-full">
+                        <span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/800px-Facebook_logo_%28square%29.png" alt="facebook logo" class="w-5">
+                        </span>
+                        <span class="mt-1">Continue with Facebook</span>
+                    </button>
                 </div>
 
                 <p class="text-sm !mt-8 text-center text-gray-800">Already have an account? <a href="{{route('login')}}" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Login here</a></p>

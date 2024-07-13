@@ -126,4 +126,8 @@ class CartController extends Controller
             'single_amount' => $cart->ProductData->sale_price * $cart->quantity
         ];
     }
+
+    public function checkout(){
+        return view('front.checkout');
+    }
 }

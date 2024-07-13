@@ -306,30 +306,14 @@
               
             
 
-            <ul class="border absolute top-20 left-0 w-80 shadow max-w-full bg-white p-2 mobile_menu_hidden z-[9999999] h-screen" id="mobile_menu">
-                @if(env('APP_MAIN_MENU') == 'Menu')
+            <ul class="border absolute top-20 left-0 w-80 shadow max-w-full bg-white p-2 mobile_menu_hidden z-[9999999] h-auto overflow-y-scroll" id="mobile_menu">
+                <!-- @if(env('APP_MAIN_MENU') == 'Menu')
                 @if($main_menu)
                     @foreach ($main_menu->SingleMenuItems as $menu_item)
                     <li><a href="{{$menu_item->menu_info['url']}}">{{$menu_item->menu_info['text']}}</a></li>
                     @endforeach
                 @else
-                    <div class="">
-                        <h1 class="text-2xl text-center font-bold">Logo</h1>
-                        <ul class="w-full flex items-center justify-center flex-col mt-5 gap-5">
-                            <li class="text-lg">
-                                <a href="/">Home</a>
-                            </li>
-                            <li class="text-lg">
-                                <a href="/shop">Shop</a>
-                            </li>
-                            <li class="text-lg">
-                                <a href="/aboutus">About Us</a>
-                            </li>
-                            <li class="text-lg">
-                                <a href="/contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
+                    
                 @endif
                 @else
                 <ul>
@@ -337,7 +321,61 @@
                     <li><a href="{{$category->route}}">{{$category->title}}</a></li>
                     @endforeach
                 </ul>
-                @endif
+                @endif -->
+                <div class="">
+                    <h1 class="text-2xl text-center font-bold">Categories</h1>
+                    <div id="accordionExample">
+                        <div class="rounded-t-lg border border-neutral-200 bg-white">
+                            <h2 class="mb-0" id="headingOne">
+                            <button
+                                class="group relative flex w-full items-center rounded-t-lg border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-twe-collapse-collapsed])]:bg-white [&:not([data-twe-collapse-collapsed])]:text-primary [&:not([data-twe-collapse-collapsed])]:shadow-border-b "
+                                type="button"
+                                data-twe-collapse-init
+                                data-twe-target="#collapseOne"
+                                aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Baby Food
+                                <span
+                                class="-me-1 ms-auto h-5 w-5 shrink-0 rotate-[-180deg] transition-transform duration-200 ease-in-out group-data-[twe-collapse-collapsed]:me-0 group-data-[twe-collapse-collapsed]:rotate-0 motion-reduce:transition-none [&>svg]:h-6 [&>svg]:w-6">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor">
+                                    <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                                </span>
+                            </button>
+                            </h2>
+                            <div
+                            id="collapseOne"
+                            class="!visible"
+                            data-twe-collapse-item
+                            data-twe-collapse-show
+                            aria-labelledby="headingOne"
+                            data-twe-parent="#accordionExample">
+                            <div class="px-5 py-4">
+                                <ul class="flex flex-col">
+                                    <li class="flex">
+                                        <a href="/" class="p-3 hover:bg-slate-200 rounded-lg w-full transition-all hover:shadow-sm">Chocolate</a>
+                                    </li>
+                                    <li class="flex">
+                                        <a href="/" class="p-3 hover:bg-slate-200 rounded-lg w-full transition-all hover:shadow-sm">Chocolate</a>
+                                    </li>
+                                    <li class="flex">
+                                        <a href="/" class="p-3 hover:bg-slate-200 rounded-lg w-full transition-all hover:shadow-sm">Chocolate</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
             </ul>
         </div>
     </header>

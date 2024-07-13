@@ -185,7 +185,7 @@
                  <!-- card start -->
                  <div class="owl-carousel owl-carousel_normal">
                             <div class="bg-white rounded-lg overflow-hidden border shadow-sm ">
-                                <a href="#">
+                                <a href="/product/test">
                                     <img class="max-w-[200px] mx-auto" src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="Product Name" />
                                 </a>
                                 <div class="p-3 md:p-6">
@@ -196,7 +196,7 @@
                                     </div>
                                     </div>
                                     <h2 class="mt-2 font-semibold leading-tight truncate text-xl">
-                                        <a href="#" class="hover:underline transition-all">Healthy Burger for your health</a>
+                                        <a href="/product/test" class="hover:underline transition-all">Healthy Burger for your health</a>
                                     </h2>
 
                                     <div class="flex items-center justify-between flex-col md:flex-row mt-3">
@@ -219,7 +219,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                             </svg>
-                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Bag</span>
                                         </div>
 
                                     </div>
@@ -293,7 +293,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                             </svg>
-                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Bag</span>
                                         </div>
 
                                     </div>
@@ -364,7 +364,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                             </svg>
-                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Bag</span>
                                         </div>
 
                                     </div>
@@ -469,7 +469,7 @@
                 <!-- card start -->
                 <div class="owl-carousel owl-carousel_normal">
                             <div class="bg-white rounded-lg overflow-hidden border shadow-sm ">
-                                <a href="#" class="hover:underline transition-all">
+                                <a href="/product/test" class="hover:underline transition-all">
                                     <img class="max-w-[200px] mx-auto" src="https://www.premierproteincereal.com/wp-content/uploads/2022/01/Premier-Protein-Chocolate-Almond-Cereal.png" alt="Product Name" />
                                 </a>
                                 <div class="p-3 md:p-6">
@@ -503,7 +503,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                             </svg>
-                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Bag</span>
                                         </div>
 
                                     </div>
@@ -568,7 +568,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 group-hover:text-green-700">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                             </svg>
-                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Cart</span>
+                                            <span class="mt-1 group-hover:text-green-700 hidden xl:block">Add to Bag</span>
                                         </div>
 
                                     </div>

@@ -25,11 +25,13 @@ Route::post('get-cities', [LandingController::class, 'getCities'])->name('landin
 Route::post('landing-fb-track', [LandingController::class, 'fbTrack'])->name('landing.fbTrack');
 Route::post('order/{product_id}', [LandingController::class, 'order'])->name('landing.order');
 Route::get('thank-you/{id}', [LandingController::class, 'orderSuccess'])->name('landing.orderSuccess');
+Route::get('thank-you', [LandingController::class, 'orderSuccessStatic'])->name('landing.orderSuccessStatic');
 Route::get('thank-you-b/{id}/{landing}', [LandingController::class, 'orderSuccessB'])->name('landing.orderSuccessB');
 Route::post('get-meta-price', [LandingController::class, 'getMetaPrice'])->name('landing.getMetaPrice');
 
 // Cart
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
+Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::get('cart/direct-order', [CartController::class, 'directOrder'])->name('cart.directOrder');
 Route::post('cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
