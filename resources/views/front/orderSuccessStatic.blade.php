@@ -10,7 +10,7 @@
 <div class="p-3 py-5">
     <div class="max-w-[1500px] mx-auto">
         <div class="flex flex-col items-center justify-center">
-            <img src="https://cdn.dribbble.com/users/147386/screenshots/5315437/success-tick-dribbble.gif" alt="Order success" class="max-w-[400px]">
+            <img src="https://cdn.dribbble.com/users/147386/screenshots/5315437/success-tick-dribbble.gif" alt="Order success" class="max-w-[400px] pointer-events-none select-none">
             <h3 class="text-2xl md:text-5xl font-semibold">Thank's for your Order!</h3>
             <h4 class="my-3 text-green-600 text-xl">Your orde has been placed.</h4>
 
@@ -27,6 +27,67 @@
 
                 </a>
             </div>
+
+            <div class="my-10">
+                <div>
+                    <p>Congratulations! Your have successfully created an acoount in our database by default.</p>
+                    <div class="max-w-[400px] mx-auto my-5 p-4 rounded-lg border ">
+                        <div>
+                            <h2 class="text-xl font-bold text-center">Your Login Info</h2>
+                            <div class="h-[1px] max-w-20 bg-slate-500 mx-auto mt-1 opacity-50"></div>
+                        </div>
+                        <div class="text-center mt-6 ">
+                            <h3>Phone: 4203489044</h3>
+                            <h3>Password: 123456789</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Order summary  -->
+            <div class="mx-auto my-20 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
+                        <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
+                        <p class="text-xl font-semibold text-gray-900">Order summary</p>
+
+                            <div class="space-y-4">
+                                <div class="space-y-2">
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500">Shipping to</dt>
+                                    <dd class="text-base font-medium text-gray-900">Someone name</dd>
+                                </dl>
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500">Shipping Address</dt>
+                                    <dd class="text-base font-medium text-gray-900">Somewhere in the world, Nowwhere, Planet earth</dd>
+                                </dl>
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500">Shipping Number</dt>
+                                    <dd class="text-base font-medium text-gray-900">122334546</dd>
+                                </dl>
+                                <dl class="flex items-center justify-between gap-4 m">
+                                    <dt class="text-base font-normal text-gray-500">Original price</dt>
+                                    <dd class="text-base font-medium text-gray-900">$3000</dd>
+                                </dl>
+
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500">Savings</dt>
+                                    <dd class="text-base font-medium text-green-600">-$299</dd>
+                                </dl>
+
+                                
+
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500">Delivery Charge</dt>
+                                    <dd class="text-base font-medium text-gray-900">$100</dd>
+                                </dl>
+                                </div>
+
+                                <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 ">
+                                <dt class="text-base font-bold text-gray-900">Total</dt>
+                                <dd class="text-base font-bold text-gray-900">$3100</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Order summary end  -->
         </div>
 
 
